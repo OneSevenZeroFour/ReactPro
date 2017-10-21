@@ -15,7 +15,7 @@
 
  	内容：热门 美妆 母婴 食品 生活 个护 保健
  	
-####4.列表页
+####4.首页活动列表页
 
 	首页点击 大图 or 加载更多 传参 对象（bigImgUrl,kindName,mainColor,headerContent）
 	

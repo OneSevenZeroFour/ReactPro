@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "jquery": "^3.2.1",
+    "rctui": "^0.7.19",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-router": "^4.2.0",

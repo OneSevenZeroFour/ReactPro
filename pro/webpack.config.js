@@ -42,22 +42,6 @@ module.exports = {
             test: /\.(jpe?g|png|gif|svg)$/i,
             use: [{
                 loader: 'file-loader'
-            }, {
-                //image-webpack-loader 图片类型检验和质量压缩
-                loader: 'image-webpack-loader',
-                options: {
-                    query: {
-                        mozjpeg: {
-                            progressive: true,
-                        },
-                        gifsicle: {
-                            interlaced: true,
-                        },
-                        optipng: {
-                            optimizationLevel: 7,
-                        }
-                    }
-                }
             }]
         }, {
             test: /\.(woff|svg|eot|ttf)$/,

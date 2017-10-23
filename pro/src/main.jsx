@@ -16,7 +16,11 @@ import rootReducer from './store/rootReducer';
 import Login from './components/login/LoginComponent.jsx';
 import Demo from './components/demo/demo.jsx';
 import Home from './components/home/home.jsx';
+
 import HomeHot from "./components/home/hot/hot.jsx"
+
+import XyHome from './components/homeRouter/home.jsx';
+
 import $ from 'jquery';
 
 import './util/base.css'
@@ -53,6 +57,8 @@ ReactDOM.render(
                 <Route path="/login" component={Login} />
                 <Route path="/home" component={Home} />
                 <Route path="/home/hot" component={HomeHot} />
+
+                <Route path="/xyhome" component={XyHome} />
             </div>
         </ConnectedRouter>
     </Provider>,

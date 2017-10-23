@@ -1,0 +1,72 @@
+$mianColor: #ff6d95;
+$mainFontSize: 12px;
+#personorder {
+    width: 100%;
+    .header {
+        background: #fff;
+        border-bottom: 1px solid #ccc;
+        position: relative;
+        text-align: center;
+        i {
+            position: absolute;
+            left: 10px;
+            top: 12px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 40px;
+        }
+    }
+    .order-middle {
+        background: #efefef;
+        position: relative;
+        ul {
+            overflow: hidden;
+            text-align: center;
+            width: 100%;
+            text-align: center;
+        }
+        li {
+            float: left;
+            width: 25%;
+            box-sizing: border-box;
+            font-size: 12px;
+            line-height: 3;
+            transition: all .4s;
+            p {
+                display: inline-block;
+            }
+            span {
+                margin-left: 3px;
+                color: $mianColor;
+            }
+        }
+        .colorlink {
+            width: 25%;
+            height: 2px;
+            background: $mianColor;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            transition: all .4s ease-out;
+        }
+    }
+    .order-list {
+        width: 100%;
+    }
+    .isempty {
+        margin-top: 60px;
+        display: block;
+        box-sizing: border-box;
+        padding: 0 40px;
+        color: #999;
+        font-size: 12px;
+        text-align: center;
+        i {
+            font-size: 70px;
+        }
+        p {
+            margin-top: 10px;
+        }
+    }
+}

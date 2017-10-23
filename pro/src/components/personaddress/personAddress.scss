@@ -1,0 +1,56 @@
+$mainColor: #f03468;
+#personAddress {
+    width: 100%;
+    .header {
+        background: #fff;
+        border-bottom: 1px solid #ccc;
+        position: relative;
+        text-align: center;
+        i {
+            position: absolute;
+            left: 10px;
+            top: 12px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 40px;
+        }
+    }
+    .num-info {
+        margin-left: 12px;
+        font-size: 12px;
+        line-height: 3;
+        color: #999;
+    }
+    .address-list {
+        width: 100%;
+        .isempty {
+            margin-top: 60px;
+            display: block;
+            box-sizing: border-box;
+            padding: 0 40px;
+            color: #999;
+            font-size: 12px;
+            text-align: center;
+            i {
+                font-size: 70px;
+            }
+            p {
+                margin-top: 10px;
+            }
+        }
+    }
+    .add-area {
+        margin-top: 12px;
+        .add-btn {
+            margin-left: 5%;
+            width: 90%;
+            border: 0;
+            background-color: $mainColor;
+        }
+    }
+}
+
+html {
+    background: #dfdfdf;
+}

@@ -9,7 +9,7 @@ module.exports = function(app) {
 
     app.post('/login', function(req, res) {
         //console.log(req.body)
-        var data = req.body.data;
+        var data = req.body;
         var sql = `select * from customer where `
         for (var item in data) {
             sql += `${item}='${data[item]}' and `
@@ -21,6 +21,7 @@ module.exports = function(app) {
             if (err) {
                 res.send(Aresult(err));
             }
+            //console.log(result)
             if (result.length >= 1) {
                 res.send(Aresult('success', true, result));
             } else {

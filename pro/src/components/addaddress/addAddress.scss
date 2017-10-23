@@ -1,0 +1,19 @@
+$mainColor: #f03468;
+#personAddress {
+    width: 100%;
+    .header {
+        background: #fff;
+        border-bottom: 1px solid #ccc;
+        position: relative;
+        text-align: center;
+        i {
+            position: absolute;
+            left: 10px;
+            top: 12px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 40px;
+        }
+    }
+}

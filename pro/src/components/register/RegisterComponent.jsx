@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as loginAction from './LoginAction';
+import * as RegisterAction from './RegisterAction.js';
 import SpinnerComponent from '../spinner/SpinnerComponent';
 import { Button, Message } from 'element-react';
 
-import './login.scss';
+import './register.scss';
 
 
 class LoginComponent extends Component {
@@ -13,56 +13,59 @@ class LoginComponent extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        //console.log(this.props, nextProps)
+        console.log(this.props, nextProps)
         if (nextProps.data.status) {
             Message({
                 type: 'success',
-                message: '登录成功'
+                message: '注册成功'
             })
             nextProps.history.push('/');
         }
     }
     toRegister() {
-        this.props.history.push('/register');
+        this.props.history.push('/login');
     }
     backTo() {
         this.props.history.push('/');
     }
     loginAction() {
 
-        let eleReg = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
-        let emailReg = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
-        let obj = {};
-        if (eleReg.test(this.refs.username.value)) {
-            obj.elephone = this.refs.username.value;
-
-        } else if (emailReg.test(this.refs.username.value)) {
-            obj.email = this.refs.username.value;
-
-        } else {
+        var eleReg = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+        var pwdReg = /^[a-z0-9_-]{6,12}$/i;
+        if (!eleReg.test(this.refs.username.value)) {
             Message({
                 type: 'warning',
-                message: '你输入的用户名不正确'
+                message: '你输入的手机号格式不正确'
+            })
+            return;
+        } else if (this.refs.password.value != this.refs.pwd.value) {
+            Message({
+                type: 'warning',
+                message: '你输入的两次密码不一致'
+            })
+            return;
+        } else if (!pwdReg.test(this.refs.password.value)) {
+            Message({
+                type: 'warning',
+                message: '密码必须是 6-12 位数字字母组成'
             })
             return;
         }
-        if (!this.refs.password.value) {
-            Message({
-                type: 'warning',
-                message: '密码不能为空'
-            })
-            return;
+        let obj = {
+            elephone: this.refs.username.value,
+            password: this.refs.password.value
         }
-        obj.password = this.refs.password.value;
 
-        this.props.login(obj);
+        //this.$store.dispatch('register/register', obj);
+        //console.log(obj)
+        this.props.register(obj);
     }
     render() {
         return (
-            <div id="login">
+            <div id="register">
                 <div className="header">
                     <i className="el-icon-arrow-left" onClick={this.backTo.bind(this)}></i>
-                    <span onClick={this.toRegister.bind(this)}>快速注册</span>
+                    <span onClick={this.toRegister.bind(this)}>返回登录</span>
                 </div>
                 <div className="login-img">
                     <img src="./src/assets/img/login.png" alt="" />
@@ -70,14 +73,18 @@ class LoginComponent extends Component {
                 <div className="main">
                     <div className="username-area area">
                         <i className="iconfont icon-user"></i>
-                        <input type="text" placeholder="请输入手机号或email" ref="username" />
+                        <input type="text" placeholder="请输入注册手机号" ref="username" />
                     </div>
                     <div className="password-area area">
                         <i className="iconfont icon-mima"></i>
                         <input type="text" placeholder="请输入密码" ref="password" />
                     </div>
+                    <div className="password-area area">
+                        <i className="iconfont icon-mima"></i>
+                        <input type="text" placeholder="请再次输入密码" ref="pwd" />
+                    </div>
                     <div className="button-area">
-                        <Button type="primary" className="login-btn" onClick={this.loginAction.bind(this)}>登录</Button>
+                        <Button type="primary" className="login-btn" onClick={this.loginAction.bind(this)}>注册</Button>
                     </div>
                 </div>
                 <SpinnerComponent />
@@ -94,4 +101,4 @@ const mapStateToProps = function (state) {
     }
 }
 
-export default connect(mapStateToProps, loginAction)(LoginComponent);
+export default connect(mapStateToProps, RegisterAction)(LoginComponent);

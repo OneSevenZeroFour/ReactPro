@@ -1,0 +1,75 @@
+ $redColor:#f03468;
+ html{
+font-size: 10px;
+   } 
+.swiper img{
+	width:100%;
+	height:20%;
+}
+a {
+    background-color: transparent;
+}
+.global-header{
+	overflow: hidden;
+	border-bottom: 1px solid #ddd;
+	.header-province {
+		float: left;
+		margin-left: .42667rem;
+		height: 14rem;
+		height: 4.5rem;
+		line-height: 4.5rem;
+		color: #666;
+		overflow: hidden;
+		min-width: 4.5rem;
+		font-size: 1.6rem;
+	}
+	
+	.header-logo {
+		position: absolute;
+		left: 20%;
+		right: 20%;
+		height: 4.5rem;
+		line-height: 4.5rem;
+		text-align: center;
+		img {
+		    display: inline-block;
+		    margin-top:1rem;
+		  	height: 2.5rem;
+		    overflow: hidden;
+		}
+	}
+	.header-search {
+		float: right;
+		margin-right: .42667rem;
+		width: 1.70667rem;
+		line-height: 1.92rem;
+		vertical-align: middle;
+		text-align: right;
+	}
+	
+	.header-search i {
+		color: #222;
+		font-size: 1.10933rem;
+	}
+}
+ .home_nav{
+ 	display: flex;
+ 	a{
+ 		flex:1;
+ 		span{
+ 			padding:0.5rem 0;
+ 			margin:0.5rem;
+ 			display: inline-block;
+ 		}
+ 		&:hover{
+ 			span{
+ 				
+ 				border-bottom: 2px solid  $redColor;
+ 			}
+ 		}
+ 	}
+ }
+ .big_img{
+ 	width:100%;
+	height:20%;
+ }

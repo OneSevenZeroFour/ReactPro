@@ -1,15 +1,20 @@
+//var personal = require('./personal/personal');
 var login = require('./login/login');
+var register = require('./register/register');
+
 
 module.exports = function(app) {
-    app.all('*', function(req, res, next) {
-        //console.log(req);
-        res.append('Access-Control-Allow-Origin', "*");
-        next();
+    app.all("*", function(req, res, next) {
+        res.header('Access-Control-Allow-Origin', '*');
+
+        if (req.method == "OPTIONS") {
+            res.send(200); /*让options请求快速返回*/
+        } else {
+            next();
+        }
     })
 
-    app.get('/', function(req, res) {
-        res.send('link to router')
-    })
-
+    //personal(app);
     login(app);
+    register(app);
 }

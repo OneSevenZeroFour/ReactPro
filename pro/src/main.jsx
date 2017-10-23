@@ -18,6 +18,13 @@ import Demo from './components/demo/demo.jsx';
 
 import $ from 'jquery';
 
+//element-ui style
+import 'element-theme-default';
+import './assets/font/iconfont.css';
+
+//rem 自适应
+//import './assets/js/flexible.js';
+
 // Create a history of your choosing (we're using a browser history in this case)
 const history = createHistory()
 

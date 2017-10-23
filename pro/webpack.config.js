@@ -1,7 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var publicPath = "/dist/";
+var publicPath = "/";
 
 //console.log(__dirname, publicPath)
 /*

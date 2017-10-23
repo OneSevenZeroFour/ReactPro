@@ -1,7 +1,12 @@
 var connection = require('../sql/sqlConnect')();
 var Aresult = require('../base/base');
 
+var bodyParser = require('body-parser');
+
 module.exports = function(app) {
+    app.use(bodyParser.urlencoded({ extended: false }))
+    app.use(bodyParser.json())
+
     app.post('/login', function(req, res) {
         //console.log(req.body)
         var data = req.body.data;

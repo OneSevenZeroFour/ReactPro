@@ -1,0 +1,67 @@
+$mainColor:#f03468;
+#login {
+    width: 100%;
+    .header {
+        padding: 20px;
+        font-size: 18px;
+        overflow: hidden;
+        color: $mainColor;
+        i {
+            float: left;
+        }
+        span {
+            float: right;
+        }
+    }
+    .login-img {
+        margin-top: 20px;
+        text-align: center;
+        height: 80px;
+        img {
+            display: inline-block;
+            height: 100%;
+        }
+    }
+    .main {
+        margin-top: 20px;
+        padding: 0 20px;
+        .area {
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            height: 40px;
+            margin: 10px 0;
+            padding-left: 40px;
+            position: relative;
+            box-sizing: border-box;
+            i {
+                position: absolute;
+                left: 10px;
+                top: 6px;
+                font-size: 24px;
+                color: $mainColor;
+            }
+            input {
+                border: 0;
+                box-sizing: border-box;
+                height: 100%;
+                width: 100%;
+                border-radius: 0 6px 6px 0;
+                font-size: 16px;
+                color: #333;
+                outline: none;
+                padding-left: 15px;
+            }
+        }
+        .button-area {
+            margin-top: 20px;
+            .login-btn {
+                width: 90%;
+                height: 40px;
+                margin-left: 6%;
+                font-size: 16px;
+                background: $mainColor;
+                border: 0;
+            }
+        }
+    }
+}

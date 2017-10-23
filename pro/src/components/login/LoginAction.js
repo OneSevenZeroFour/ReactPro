@@ -1,12 +1,12 @@
 import * as constants from '../../store/commonConstant'
 
-export function login(username, password) {
+export function login(obj) {
     console.log('action')
     return {
         types: [constants.REQUEST, constants.SUCCESS, constants.FAILURE],
         path: 'login',
         method: 'post',
-        query: { username, password }
+        query: obj
     }
 }
 export function sendData(data) {

@@ -1,13 +1,32 @@
+var connection = require('../sql/sqlConnect')();
+var Aresult = require('../base/base');
+
 var bodyParser = require('body-parser');
-var multer = require('multer');
 
 module.exports = function(app) {
+    app.use(bodyParser.urlencoded({ extended: false }))
+    app.use(bodyParser.json())
 
-    app.use(bodyParser.json()); // for parsing application/json
-    app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-    //app.use(multer()); // for parsing multipart/form-data
     app.post('/login', function(req, res) {
-        console.log(req.body)
-        res.send({ data: '123' })
+        //console.log(req.body)
+        var data = req.body.data;
+        var sql = `select * from customer where `
+        for (var item in data) {
+            sql += `${item}='${data[item]}' and `
+        }
+        sql = sql.slice(0, sql.length - 5);
+        sql += `;`;
+        //res.send(Aresult(sql))
+        connection.query(sql, function(err, result, feild) {
+            if (err) {
+                res.send(Aresult(err));
+            }
+            if (result.length >= 1) {
+                res.send(Aresult('success', true, result));
+            } else {
+                res.send(Aresult('用户名或密码错误'))
+            }
+
+        })
     })
 }

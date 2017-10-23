@@ -2,44 +2,85 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as loginAction from './LoginAction';
 import SpinnerComponent from '../spinner/SpinnerComponent';
+import { Button, Message } from 'element-react';
+
+import './login.scss';
+
 
 class LoginComponent extends Component {
-	constructor(props) {
-		super(props);
-	}
+    constructor(props) {
+        super(props);
+    }
+   
+    componentWillReceiveProps() {
+        console.log('login',this.props)
+    }
+    toRegister() {
+        this.props.history.push('/register');
+    }
+    backTo() {
+        this.props.history.push('/');
+    }
+    loginAction() {
 
-	loginHandler() {
-        //发出请求 获取数据 渲染页面 component => login() => midlleware 
-        console.log('component')
-        this.props.login(this.refs.username.value, this.refs.password.value)
-        this.props.sendData(this.refs.username.value)
+        let eleReg = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+        let emailReg = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+        let obj = {};
+        if (eleReg.test(this.refs.username.value)) {
+            obj.elephone = this.refs.username.value;
 
+        } else if (emailReg.test(this.refs.username.value)) {
+            obj.email = this.refs.username.value;
+
+        } else {
+            Message({
+                type: 'warning',
+                message: '你输入的用户名不正确'
+            })
+            return;
+        }
+        if (!this.refs.password.value) {
+            Message({
+                type: 'warning',
+                message: '密码不能为空'
+            })
+            return;
+        }
+        obj.password = this.refs.password.value;
+
+        this.props.login(obj);
     }
-    componentWillReceiveProps(){
-        //console.log('123')
-        //console.log(this.props)
+    render() {
+        return (
+            <div id="login">
+                <div className="header">
+                    <i className="el-icon-arrow-left" onClick={this.toRegister.bind(this)}></i>
+                    <span onClick={this.backTo.bind(this)}>快速注册</span>
+                </div>
+                <div className="login-img">
+                    <img src="./src/assets/img/login.png" alt="" />
+                </div>
+                <div className="main">
+                    <div className="username-area area">
+                        <i className="iconfont icon-user"></i>
+                        <input type="text" placeholder="请输入手机号或email" ref="username" />
+                    </div>
+                    <div className="password-area area">
+                        <i className="iconfont icon-mima"></i>
+                        <input type="text" placeholder="请输入密码" ref="password" />
+                    </div>
+                    <div className="button-area">
+                        <Button type="primary" className="login-btn" onClick={this.loginAction.bind(this)}>登录</Button>
+                    </div>
+                </div>
+                <SpinnerComponent />
+            </div>
+        )
     }
-	render() {
-		return (
-			<div id="login">
-				<ul>
-					<li><input type="text" ref='username' /></li>
-					<li><input type="text" ref='password' /></li>
-					<li><input type="text" placeholder="123"/></li>
-                    <p>{this.props.data & console.log(this.props)}</p>
-                    <p>3</p>
-                 
-					<li><input type="button" value='登录' onClick={this.loginHandler.bind(this)} /></li>
-					
-				</ul>
-				<SpinnerComponent />
-			</div>
-		)
-    }
-    
+
 }
 
-const mapStateToProps = function(state){
+const mapStateToProps = function (state) {
     //console.log(state); this.props
     return {
         data: state.Login.data

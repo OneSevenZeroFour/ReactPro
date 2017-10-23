@@ -16,6 +16,7 @@ import rootReducer from './store/rootReducer';
 import Login from './components/login/LoginComponent.jsx';
 import Demo from './components/demo/demo.jsx';
 import Home from './components/home/home.jsx';
+import XyHome from './components/homeRouter/home.jsx';
 
 import $ from 'jquery';
 
@@ -52,6 +53,8 @@ ReactDOM.render(
                 <Route exact path="/" component={Demo} />
                 <Route path="/login" component={Login} />
                 <Route path="/home" component={Home} />
+                <Route path="/xyhome" component={XyHome} />
+
             </div>
            
         </ConnectedRouter>

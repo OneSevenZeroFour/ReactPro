@@ -1,10 +1,10 @@
 import * as constants from '../../store/commonConstant'
 
-export function login(obj) {
+export function register(obj) {
     console.log('action')
     return {
         types: [constants.REQUEST, constants.SUCCESS, constants.FAILURE],
-        path: 'login',
+        path: 'register',
         method: 'post',
         query: obj
     }

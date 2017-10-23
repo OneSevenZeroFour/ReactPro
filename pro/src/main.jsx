@@ -22,8 +22,16 @@ import Personal from './components/personal/PersonalComponent.jsx';
 import PersonOrder from './components/personorder/personOrderComponent.jsx';
 import PersonAddress from './components/personaddress/personAddress.jsx';
 import AddAddress from './components/addaddress/addAddress.jsx';
+import Home from './components/home/home.jsx';
+
+import HomeHot from "./components/home/hot/hot.jsx"
+
+import XyHome from './components/homeRouter/home.jsx';
 
 import $ from 'jquery';
+
+import './util/base.css'
+
 
 //element-ui style
 import 'element-theme-default';
@@ -54,13 +62,16 @@ ReactDOM.render(
         { /* ConnectedRouter will use the store from Provider automatically */}
         <ConnectedRouter history={hashHistory}>
             <div>
-                <Route exact path="/" component={Demo} />
+                <Route exact path="/" component={Home} />
                 <Route path="/login" component={Login} />
                 <Route path="/register" component={Register} />
                 <Route exact path="/personal" component={Personal} />
                 <Route path="/personal/personorder/:id" component={PersonOrder} />
                 <Route path="/personal/personaddress" component={PersonAddress} />
                 <Route path="/personal/addaddress" component={AddAddress} />
+                <Route path="/home" component={Home} />
+                <Route path="/home/hot" component={HomeHot} />
+                <Route path="/xyhome" component={XyHome} />
             </div>
         </ConnectedRouter>
     </Provider>,

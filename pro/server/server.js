@@ -17,7 +17,7 @@ app.get('/sendProxy', function(req, res) {
 
     var proxy = req.query.proxy;
 
-    http.get('http://120.76.205.241:8000/product/yunhou?pageToken=1&kw=YSL&apikey=ZIZJCfxUFdV2NBW4EKeHhLzOewKuJM2w8cyYSSz3cUgYhAQwkprkubdVgRcFKsH5', function(result) {
+    http.get(proxy, function(result) {
         let data = '';
 
         const { statusCode } = result;

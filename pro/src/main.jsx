@@ -16,7 +16,7 @@ import rootReducer from './store/rootReducer';
 import Login from './components/login/LoginComponent.jsx';
 import Demo from './components/demo/demo.jsx';
 import Home from './components/home/home.jsx';
-
+import HomeHot from "./components/home/hot/hot.jsx"
 import $ from 'jquery';
 
 import './util/base.css'
@@ -49,11 +49,11 @@ ReactDOM.render(
         { /* ConnectedRouter will use the store from Provider automatically */}
         <ConnectedRouter history={history}>
             <div>
-                <Route exact path="/" component={Demo} />
+                <Route exact path="/" component={Home} />
                 <Route path="/login" component={Login} />
                 <Route path="/home" component={Home} />
+                <Route path="/home/hot" component={HomeHot} />
             </div>
-           
         </ConnectedRouter>
     </Provider>,
     document.querySelector('#app')

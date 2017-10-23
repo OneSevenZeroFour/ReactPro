@@ -5,7 +5,8 @@ body {
 
 html {
     overflow-x: hidden;
-    overflow-y: auto
+    overflow-y: auto;
+    font-size:10px;
 }
 
 ul,
@@ -21,9 +22,10 @@ img {
     display: block;
     border: 0;
 }
-
 html,
 body,
+ul,
+li,
 h1,
 h2,
 h3,

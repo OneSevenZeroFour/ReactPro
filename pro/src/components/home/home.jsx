@@ -39,41 +39,9 @@ class Home extends Component {
 				urlTo:"/home/excise"
 			}   
 		]
-		//首页内容部分分区列表 （图片+商品列表）
-		this.homedata=[
-		{
-			bigImg:require("../../assets/images/kind1.jpeg"),
-			ajaxUrl:"",
-			color:"#c0714a",
-			list_header_nav:""
-		},{
-			bigImg:require("../../assets/images/kind2.jpeg"),
-			ajaxUrl:"",
-			color:"",
-			list_header_nav:""
-		},{
-			bigImg:require("../../assets/images/kind3.jpeg"),
-			ajaxUrl:"",
-			color:"",
-			list_header_nav:""
-		},{
-			bigImg:require("../../assets/images/kind4.jpeg"),
-			ajaxUrl:"",
-			color:"",
-			list_header_nav:""
-		},{
-			bigImg:require("../../assets/images/kind5.jpeg"),
-			ajaxUrl:"",
-			color:"",
-			list_header_nav:""
-		},{
-			bigImg:require("../../assets/images/kind6.jpeg"),
-			ajaxUrl:"",
-			color:"",
-			list_header_nav:""
-		}]
+		
 	}
-
+	
 	render(){
 		return (
 			<div id="home_page">

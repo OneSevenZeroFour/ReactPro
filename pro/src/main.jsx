@@ -18,9 +18,9 @@ import Demo from './components/demo/demo.jsx';
 import Home from './components/home/home.jsx';
 
 import $ from 'jquery';
-<<<<<<< HEAD
+
 import './util/base.css'
-=======
+
 
 //element-ui style
 import 'element-theme-default';
@@ -29,7 +29,6 @@ import './assets/font/iconfont.css';
 //rem 自适应
 //import './assets/js/flexible.js';
 
->>>>>>> a85203ef10e8ed1221624710e4ce98eeb4a37743
 // Create a history of your choosing (we're using a browser history in this case)
 const history = createHistory()
 

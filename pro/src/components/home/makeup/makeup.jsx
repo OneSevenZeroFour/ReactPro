@@ -1,10 +1,11 @@
 import React,{Component} from 'react';
 // import { Button } from 'element-react';
 import styled from 'styled-components';
-import '../../assets/font_home/iconfont.css'
+import '../../../assets/font_home/iconfont.css';
+import '../../../assets/css/homeRouter.css'
 
 
-class Meizhuang extends Component {
+class HomeMakeup extends Component {
     constructor(props){
         super(props);
         
@@ -27,21 +28,29 @@ class Meizhuang extends Component {
 
                 }
             }
+            .banner{
+                img{width:100%;height:auto;}
+            }
+
         `
         return (
-            <Div>
+            <div>
                 <div className="header">
-                    <div><a href="#"><i className="iconfont icon-huo"></i><p>TOP热销</p></a></div>
+                    <div><a href="#"><i className="iconfont icon-fire"></i><p>TOP热销</p></a></div>
                     <div><a href="#"><i className="iconfont icon-hufu--"></i><p>基础护肤</p></a></div>
                     <div><a href="#"><i className="iconfont icon-koudai"></i><p>大牌小样</p></a></div>
-                    <div><a href="#"><i className="iconfont icon-xiezhuangye"></i><p>清洁卸妆</p></a></div>
+                    <div><a href="#"><i className="iconfont icon-17"></i><p>清洁卸妆</p></a></div>
                     <div><a href="#"><i className="iconfont icon-jirou"></i><p>男士专区</p></a></div>
                     <div><a href="#"><i className="iconfont icon-caizhuang"></i><p>百变彩妆</p></a></div>
                     <div><a href="#"><i className="iconfont icon-mianmo"></i><p>面膜面贴</p></a></div>
                     <div><a href="#"><i className="iconfont icon-xiangshui"></i><p>魅惑香水</p></a></div>
                 </div>
-            </Div>
+                <div className="banner">
+                    <img src="/src/assets/images/kind5.jpeg" />
+                </div>
+                
+            </div>
         )
     }
 }
-export default Meizhuang;
+export default HomeMakeup;

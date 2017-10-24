@@ -1,5 +1,5 @@
 $mainColor: #f03468;
-#personAddress {
+#addAddress {
     width: 100%;
     .header {
         background: #fff;
@@ -14,6 +14,37 @@ $mainColor: #f03468;
         p {
             font-size: 16px;
             line-height: 40px;
+        }
+    }
+    .add-middle {
+        width: 100%;
+        background: #fff;
+        margin-top: 20px;
+        box-sizing: border-box;
+        padding: 0 14px;
+        .msg-area {
+            border-bottom: 1px solid #eee;
+            height: 40px;
+            overflow: hidden;
+            p {
+                float: left;
+                font-size: 12px;
+                line-height: 40px;
+                color: #333;
+                width: 30%;
+                text-align: left;
+                span {
+                    color: $mainColor;
+                }
+            }
+            .diff {
+                width: 84%;
+            }
+            .deAddress {
+                float: left;
+                border: 0;
+                height: 40px;
+            }
         }
     }
 }

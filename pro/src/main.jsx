@@ -23,14 +23,28 @@ import PersonOrder from './components/personorder/personOrderComponent.jsx';
 import PersonAddress from './components/personaddress/personAddress.jsx';
 import AddAddress from './components/addaddress/addAddress.jsx';
 import Home from './components/home/home.jsx';
+<<<<<<< HEAD
 import HomeHot from "./components/home/hot/hot.jsx"
+=======
+
+import HomeHot from "./components/home/hot/hot.jsx";
+import HomeMakeup from "./components/home/makeup/makeup.jsx";
+import HomeBaby from "./components/home/baby/baby.jsx";
+import HomeFoods from "./components/home/foods/foods.jsx";
+import HomeHealth from "./components/home/health/health.jsx";
+import HomeExcise from "./components/home/excise/excise.jsx";
+>>>>>>> 8c666a399925c1be7ef1afd0eca323a81e433061
+
 
 import XyHome from './components/homeRouter/home.jsx';
 
-import $ from 'jquery';
-
+<<<<<<< HEAD
 import './assets/css/common.css'
+=======
+>>>>>>> 8c666a399925c1be7ef1afd0eca323a81e433061
 
+import $ from 'jquery';
+import './assets/css/base.css'
 
 //element-ui style
 import 'element-theme-default';
@@ -70,6 +84,12 @@ ReactDOM.render(
                 <Route path="/personal/addaddress" component={AddAddress} />
                 <Route path="/home" component={Home} />
                 <Route path="/home/hot" component={HomeHot} />
+                <Route path="/home/makeup" component={HomeMakeup} />
+                <Route path="/home/baby" component={HomeBaby} />
+                <Route path="/home/foods" component={HomeFoods} />
+                <Route path="/home/health" component={HomeHealth} />
+                <Route path="/home/excise" component={HomeExcise} />
+
                 <Route path="/xyhome" component={XyHome} />
             </div>
         </ConnectedRouter>

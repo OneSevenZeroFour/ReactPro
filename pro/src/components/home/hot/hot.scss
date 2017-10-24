@@ -1,0 +1,54 @@
+ $redColor:#f03468;
+html{
+    font-size:10px ;
+}
+.lists{
+    margin:1rem 0;
+    overflow: hidden;
+    a{
+        width:100%;
+    }
+}
+.list_cont {
+    width: 100%;
+    overflow: hidden;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row nowrap;
+    margin-bottom: -1.282051rem;
+}
+.list_cont::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
+.goods_box{
+    padding:1rem;
+    float:left;
+    width:9rem;
+    font-size: 1.3rem;
+    color:#555;
+    img{
+        width:7rem;
+        height:7rem;
+    }
+    p{
+        width:100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow:ellipsis;
+        strong{
+            margin-right:1rem;
+            color: $redColor;
+        }
+    }
+}
+#active_page .ant-layout-header{
+     background: #fff;
+     padding: 0 ; 
+     height: 4rem; 
+     line-height: 4rem; 
+}

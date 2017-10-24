@@ -30,6 +30,8 @@ import HomeBaby from "./components/home/baby/baby.jsx";
 import HomeFoods from "./components/home/foods/foods.jsx";
 import HomeHealth from "./components/home/health/health.jsx";
 import HomeExcise from "./components/home/excise/excise.jsx";
+import Active from "./components/active/active.jsx";
+
 
 
 
@@ -80,6 +82,7 @@ ReactDOM.render(
                 <Route path="/personal/addaddress" component={AddAddress} />
                 <Route path="/home" component={Home} />
                 <Route path="/home/hot" component={HomeHot} />
+                <Route path="/active" component={Active} />
                 <Route path="/home/makeup" component={HomeMakeup} />
                 <Route path="/home/baby" component={HomeBaby} />
                 <Route path="/home/foods" component={HomeFoods} />

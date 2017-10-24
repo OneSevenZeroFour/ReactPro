@@ -65,4 +65,4 @@ app.get('/sendProxy', function(req, res) {
 })
 
 //连接后台
-var router = require('./router')(app);
+//var router = require('./router')(app);

@@ -23,19 +23,16 @@ class HomeHot extends Component {
 			kind3:"",
 			kind4:"",
 			kind5:"",
-			
 			homedata:[{
 						bigImg:"/src/assets/images/kind1.jpeg",
 						ajaxUrl:"http://120.76.205.241:8000/product/yunhou?pageToken=1&kw=%E5%8C%96%E5%A6%86&apikey=ZIZJCfxUFdV2NBW4EKeHhLzOewKuJM2w8cyYSSz3cUgYhAQwkprkubdVgRcFKsH5",
 						color:"#c0714a",
 						list_header_nav:"",
-						
 					},{
 						bigImg:"/src/assets/images/kind2.jpeg",
 						ajaxUrl:"http://120.76.205.241:8000/product/yunhou?pageToken=1&kw=%E4%BF%9D%E5%81%A5&apikey=ZIZJCfxUFdV2NBW4EKeHhLzOewKuJM2w8cyYSSz3cUgYhAQwkprkubdVgRcFKsH5",
 						color:"",
 						list_header_nav:"",
-						
 					},{
 						bigImg:"/src/assets/images/kind3.jpeg",
 						ajaxUrl:"http://120.76.205.241:8000/product/yunhou?pageToken=1&kw=%E8%90%A5%E5%85%BB%E4%BF%9D%E5%81%A5&apikey=ZIZJCfxUFdV2NBW4EKeHhLzOewKuJM2w8cyYSSz3cUgYhAQwkprkubdVgRcFKsH5",
@@ -100,9 +97,7 @@ class HomeHot extends Component {
 				})
 			
 			}
-			
 	}
-	
 	componentWillMount(){
 		var page = 1,select="kw",sotes="化妆";
 		console.log(this.state.homedata.length)
@@ -135,7 +130,6 @@ class HomeHot extends Component {
 											{
 												(function(){
 													if(self.state["kind"+index]){
-														
 														return self.getList(index)
 													}
 												})()

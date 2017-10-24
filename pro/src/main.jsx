@@ -23,15 +23,12 @@ import PersonOrder from './components/personorder/personOrderComponent.jsx';
 import PersonAddress from './components/personaddress/personAddress.jsx';
 import AddAddress from './components/addaddress/addAddress.jsx';
 import Home from './components/home/home.jsx';
-
 import HomeHot from "./components/home/hot/hot.jsx"
-
 import XyHome from './components/homeRouter/home.jsx';
 
+
 import $ from 'jquery';
-
-import './util/base.css'
-
+import './assets/css/base.css'
 
 //element-ui style
 import 'element-theme-default';

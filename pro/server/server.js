@@ -15,9 +15,11 @@ app.get('/sendProxy', function(req, res) {
 
     res.append('Access-Control-Allow-Origin', "*");
 
-    var proxy = req.query.proxy;
+    var pageToken = req.query.pageToken;
+    var kw = req.query.kw;
+    var apikey = req.query.apikey;
 
-    http.get(proxy, function(result) {
+    http.get(`http://120.76.205.241:8000/product/yunhou?pageToken=${pageToken}&kw=${kw}&apikey=${apikey}`, function(result) {
         let data = '';
 
         const { statusCode } = result;

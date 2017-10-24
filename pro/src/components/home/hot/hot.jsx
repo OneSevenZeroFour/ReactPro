@@ -64,6 +64,7 @@ class HomeHot extends Component {
 				$.get("http://localhost:8000/sendProxy",
 					{proxy:url},
 				  	function(data){
+				  		console.log(data)
 				  		//需要的数据
 				    var listData = data.data.data.splice(0,6)
 				    	//设置数据
@@ -83,15 +84,14 @@ class HomeHot extends Component {
 			}
 			this.getList=(index)=>{										
 				var kind = "kind"+index;
-				console.log(this.state[kind])
+//				console.log(this.state[kind])
 				return this.state.kind0.map(function(i,t){
-					console.log(i,t)
+					console.log(i.price)
 					return <div className="goods_box">
-							<img src/>
+							<img src={i.imageUrls[0]} width="50" height="50"/>
 							<div className="goods_into">
-								<p>【香港直邮】</p>
-								<p></p>
-								<p><span>¥</span><del></del></p>
+								<p>{i.title}</p>
+								<p><span>"¥"+{i.price}</span><del>{i.marketPrice}</del></p>
 							</div>
 						</div>
 				})
@@ -103,7 +103,7 @@ class HomeHot extends Component {
 		console.log(this.state.homedata.length)
 		for(let i=0;i<this.state.homedata.length;i++){
 			var self = this;
-			console.log(this.state.homedata[i].ajaxUrl ,i)
+//			console.log(this.state.homedata[i].ajaxUrl ,i)
 			setTimeout(function(){
 				self.getDate( self.state.homedata[i].ajaxUrl ,i)
 			},1000*i)
@@ -121,7 +121,7 @@ class HomeHot extends Component {
 					{
 						(function(self){	
 						return	self.state.homedata.map(function(item,index){
-							console.log(index)
+//							console.log(index)
 								return <div className="lists" key={index}>
 											<div className="list_big_img">
 												<img className="big_img" src={item.bigImg} alt=""/>
@@ -129,7 +129,9 @@ class HomeHot extends Component {
 											<div  className="list_cont">
 											{
 												(function(){
+													console.log(self.state["kind"+index])
 													if(self.state["kind"+index]){
+								
 														return self.getList(index)
 													}
 												})()

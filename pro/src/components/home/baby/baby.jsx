@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 // import { Button } from 'element-react';
 //import styled from 'styled-components';
 import '../../../assets/font_home/iconfont.css';
-import '../../../assets/css/homeRouter.css'
+import '../../../assets/css/homeRouter.scss'
 
 
 class HomeBaby extends Component {

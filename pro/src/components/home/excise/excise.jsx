@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 // import { Button } from 'element-react';
 //import styled from 'styled-components';
 import '../../../assets/font_home/iconfont.css';
-import '../../../assets/css/homeRouter.css'
+import '../../../assets/css/homeRouter.scss'
 
 
 class HomeExcise extends Component {
@@ -26,6 +26,13 @@ class HomeExcise extends Component {
                 </div>
                 <div className="banner">
                     <img src="/src/assets/images/kind8.jpeg" />
+                </div>
+                <div>
+                    <i></i><span>每日推荐</span>
+                </div>
+                <div>
+                    
+
                 </div>
                 
             </div>

@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import createHistory from 'history/createBrowserHistory';
 import createHashHistory from 'history/createHashHistory';
 
-import { Route } from 'react-router-dom';
+import { HashRouter as Router, Route, Link, Redirect} from 'react-router-dom';
 
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
 
@@ -49,9 +49,10 @@ import 'element-theme-default';
 import './assets/font/iconfont.css';
 import './assets/css/common.css';
 
-//rem 自适应
-//import './assets/js/flexible.js';
+//蚂蚁金服ui
+import { Row, Col ,Layout,Icon} from 'antd'
 
+const { Footer, Content } = Layout;
 // Create a history of your choosing (we're using a browser history in this case)
 const history = createHistory();
 const hashHistory = createHashHistory();
@@ -69,30 +70,46 @@ const store = createStore(
 // store.dispatch(push('/foo'))
 
 ReactDOM.render(
-    <Provider store={store}>
-        { /* ConnectedRouter will use the store from Provider automatically */}
-        <ConnectedRouter history={hashHistory}>
-            <div>
-                <Route exact path="/" component={Home} />
-                <Route path="/login" component={Login} />
-                <Route path="/register" component={Register} />
-                <Route exact path="/personal" component={Personal} />
-                <Route path="/personal/personorder/:id" component={PersonOrder} />
-                <Route path="/personal/personaddress" component={PersonAddress} />
-                <Route path="/personal/addaddress" component={AddAddress} />
-                <Route path="/home" component={Home} />
-                <Route path="/home/hot" component={HomeHot} />
-                <Route path="/active" component={Active} />
-                <Route path="/home/makeup" component={HomeMakeup} />
-                <Route path="/home/baby" component={HomeBaby} />
-                <Route path="/home/foods" component={HomeFoods} />
-                <Route path="/home/health" component={HomeHealth} />
-                <Route path="/home/excise" component={HomeExcise} />
-
-                <Route path="/xyhome" component={XyHome} />
-            </div>
-        </ConnectedRouter>
-    </Provider>,
+	 <Router>
+	<Layout>
+		<Content>
+		    <Provider store={store}>
+		        { /* ConnectedRouter will use the store from Provider automatically */}
+		        <ConnectedRouter history={hashHistory}>
+		            <div>
+		            	<Redirect from="/" to="/home/hot" />  
+				      	<Route path="/home" component={Home} />
+		                <Route path="/home/hot" component={HomeHot} />
+		                <Route path="/active" component={Active} />
+		                <Route path="/home/makeup" component={HomeMakeup} />
+		                <Route path="/home/baby" component={HomeBaby} />
+		                <Route path="/home/foods" component={HomeFoods} />
+		                <Route path="/home/health" component={HomeHealth} />
+		                <Route path="/home/excise" component={HomeExcise} />
+		                <Route exact path="/" component={Home} />
+		                <Route path="/login" component={Login} />
+		                <Route path="/register" component={Register} />
+		                <Route exact path="/personal" component={Personal} />
+		                <Route path="/personal/personorder/:id" component={PersonOrder} />
+		                <Route path="/personal/personaddress" component={PersonAddress} />
+		                <Route path="/personal/addaddress" component={AddAddress} />
+		                <Route path="/xyhome" component={XyHome} />
+		            </div>
+		        </ConnectedRouter>
+		    </Provider>
+		</Content>
+	    <Footer>
+	      	<Row>
+		     
+		       <Col span={6}><Link to="/home"><Icon type="home"  />首页</Link></Col>
+		       <Col span={6}><Link to="/home"><Icon type="appstore-o"/>分类</Link></Col>
+		       <Col span={6}><Link to="/home"><Icon type="buycar"  />购物车</Link></Col>
+		       <Col span={6}><Link to="/personal"><Icon type="user" />我的</Link></Col>
+		    </Row>
+	    </Footer>
+	</Layout>
+	 </Router>
+    ,
     document.querySelector('#app')
 )
 

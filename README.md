@@ -15,11 +15,9 @@
 			c.限制两行文字并隐藏
 			d.手动触摸滑动，
 ####3.路由跳转（头部分类）home/:kind   kind:种类名
-
- 	内容：热门 美妆 母婴 食品 生活 个护 保健
- 	
-####4.首页活动列表页
-
-	首页点击 大图 or 加载更多 传参 对象（bigImgUrl,kindName,mainColor,headerContent）
 	
+ 	内容：热门 美妆 母婴 食品 生活 个护 保健
+ 	注意事项：路由重定向<Redirect from="/" to="/home/hot" />  
+####4.首页活动列表页
+	首页点击 大图 or 加载更多 传参 对象（bigImgUrl,kindName,mainColor,headerContent）
 	 数据请求，并渲染

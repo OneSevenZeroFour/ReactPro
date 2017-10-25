@@ -121,7 +121,7 @@ class HomeHot extends Component {
 					<Carousel autoplay>
 						{
 							this.swiperImgs.map(function(item,index){
-								return <div><img className="big_img" src={item} /></div>
+								return <div><img className="big_img" src={item} key={index}/></div>
 							})
 						}
 					 </Carousel>

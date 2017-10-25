@@ -38,17 +38,17 @@ import Active from "./components/active/active.jsx";
 import XyHome from './components/homeRouter/home.jsx';
 
 
-import './assets/css/common.css'
+
 
 
 import $ from 'jquery';
-import './assets/css/base.css'
 
 //element-ui style
 import 'element-theme-default';
 import './assets/font/iconfont.css';
 import './assets/css/common.css';
-
+import './assets/css/base.css'
+import './assets/css/common.css'
 //蚂蚁金服ui
 import { Row, Col ,Layout,Icon} from 'antd'
 

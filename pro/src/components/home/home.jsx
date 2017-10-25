@@ -8,13 +8,11 @@ import swiperImg from "../../assets/images/banner1.jpeg";
 import {HashRouter as Router, Route, Link, Redirect} from 'react-router-dom';
 //引进首页样式
 import "./home.scss";
-//import 'weui';
-//import 'react-weui/build/packages/react-weui.css';
-//import Siwper from "../siwper/siwper.jsx"
+import {Layout,Icon} from 'antd';
+const {Header, Content } = Layout;
 //home类使其拥有react所有方法与属性
+import "antd/dist/antd.css"
 
-//import {Button} from 'rctui'
-//import 'element-theme-default';
 class Home extends Component {
 	constructor(props){
 		super(props);
@@ -41,10 +39,10 @@ class Home extends Component {
 		]
 		
 	}
-	
 	render(){
 		return (
 			<div id="home_page">
+				<div className="home_warp">
 				<header className="global-header">
 				    <div className="header-province jProvince">广东</div>
 					    <div className="header-logo">
@@ -52,7 +50,7 @@ class Home extends Component {
 					        	<img src="//s1.bbgstatic.com/gshop/images/index/global-logo.png" alt=""/>
 					       </Link>
 				    	</div>
-				    <div className="header-search jHeaderSearch"><i className="iconglobal"></i></div>
+				    <div className="header-search jHeaderSearch"><Icon type="search" /></div>
 				</header>
 				<ul className="home_nav">
 				{
@@ -63,8 +61,9 @@ class Home extends Component {
 					})
 				}
 				</ul>
-				
+				</div>
 			</div>
+			
 		)
 	}
 }

@@ -57,7 +57,7 @@ class Home extends Component {
 				<ul className="home_nav">
 				{
 					this.homeHeader.map(function(item,index){
-						console.log(index)
+					
 						return<Link to={item.urlTo}  key={index}><span>{item.title}</span></Link >
 						
 					})

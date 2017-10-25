@@ -92,12 +92,14 @@ class HomeHot extends Component {
 
 				return this.state["kind"+index].map(function(i,t){
 				
-					return <div className="goods_box" key={t}>
-							<img src={i.imageUrls[0]} width="50" height="50"/>
-							<div className="goods_into">
-								<p>{i.title}</p>
-								<p><strong>"¥"{i.price}</strong><del>{i.marketPrice}</del></p>
-							</div>
+					return <div className="goods_box" key={t} >
+							<a href={i.url}>
+								<img src={i.imageUrls[0]} width="50" height="50"/>
+								<div className="goods_into">
+									<p>{i.title}</p>
+									<p><strong>"¥"{i.price}</strong><del>{i.marketPrice}</del></p>
+								</div>
+							</a>
 						</div>
 				})
 			
@@ -140,6 +142,7 @@ class HomeHot extends Component {
 											<div className="list_big_img">
 												<img className="big_img" src={item.bigImg} alt=""/>
 											</div>
+										</Link>
 											<div  className="list_cont">
 											{
 												(function(){
@@ -150,7 +153,7 @@ class HomeHot extends Component {
 												
 											}
 											</div>
-										</Link>
+										
 									</div>
 						})
 						

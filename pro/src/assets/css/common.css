@@ -59,3 +59,6 @@ a {
 	background-color: #fff;
 	border-top: 1px solid #ddd;
 }
+a:hover {
+	color: #f03468;
+}

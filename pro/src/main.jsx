@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React ,{Component}from 'react';
 import ReactDOM from 'react-dom';
 import ReduxThunk from 'redux-thunk';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
@@ -68,6 +68,30 @@ const store = createStore(
 
 // Now you can dispatch navigation actions from anywhere!
 // store.dispatch(push('/foo'))
+import { Tabs } from 'antd';
+const TabPane = Tabs.TabPane;
+
+class Main extends Component{
+	constructor(props){
+		super(props);
+		this.state={
+			currentIndex :0
+		}
+	
+	}
+	componentWillMount(){
+		
+	}
+	render(){
+		return(<Row>
+		       <Col span={6} ><Link to="/home/hot" className={this.state.currenIndex==0?active:""}><Icon type="home"  />首页</Link></Col>
+		       <Col span={6} ><Link to="/home" className={this.state.currenIndex==1?active:"" }><Icon type="appstore-o"/>分类</Link></Col>
+		       <Col span={6} ><Link to="/buycart" className={this.state.currenIndex==2?active:""}><Icon type="buycar" />购物车</Link></Col>
+		       <Col span={6} ><Link to="/personal" className={this.state.currenIndex==3?active:"" }><Icon type="user" />我的</Link></Col>
+		    </Row>)
+	}
+	
+}
 
 ReactDOM.render(
 	 <Router>
@@ -78,7 +102,9 @@ ReactDOM.render(
 		        <ConnectedRouter history={hashHistory}>
 		            <div>
 		            	<Redirect from="/" to="/home/hot" />  
+		            	 
 				      	<Route path="/home" component={Home} />
+				      	<Redirect from="/home" to="/home/hot" /> 
 		                <Route path="/home/hot" component={HomeHot} />
 		                <Route path="/active" component={Active} />
 		                <Route path="/home/makeup" component={HomeMakeup} />
@@ -94,18 +120,13 @@ ReactDOM.render(
 		                <Route path="/personal/personaddress" component={PersonAddress} />
 		                <Route path="/personal/addaddress" component={AddAddress} />
 		                <Route path="/xyhome" component={XyHome} />
+		                <Route path="/buycart"  />
 		            </div>
 		        </ConnectedRouter>
 		    </Provider>
 		</Content>
 	    <Footer>
-	      	<Row>
-		     
-		       <Col span={6}><Link to="/home"><Icon type="home"  />首页</Link></Col>
-		       <Col span={6}><Link to="/home"><Icon type="appstore-o"/>分类</Link></Col>
-		       <Col span={6}><Link to="/home"><Icon type="buycar"  />购物车</Link></Col>
-		       <Col span={6}><Link to="/personal"><Icon type="user" />我的</Link></Col>
-		    </Row>
+	      	<Main/>
 	    </Footer>
 	</Layout>
 	 </Router>

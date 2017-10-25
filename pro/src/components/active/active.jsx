@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {HashRouter as Router, Route, Link, Redirect} from 'react-router-dom';
-import { Collapse ,Anchor,Icon,Layout} from 'antd';
+import {Icon,Layout} from 'antd';
 const { Header, Content } = Layout;
 import "antd/dist/antd.css"
 import "./active.scss"

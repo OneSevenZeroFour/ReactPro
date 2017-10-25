@@ -32,10 +32,11 @@ import HomeHealth from "./components/home/health/health.jsx";
 import HomeExcise from "./components/home/excise/excise.jsx";
 import Active from "./components/active/active.jsx";
 
+import Sort from "./components/sort/sort.jsx";
 
 
 
-import XyHome from './components/homeRouter/home.jsx';
+
 
 
 import './assets/css/common.css'
@@ -93,7 +94,8 @@ ReactDOM.render(
 		                <Route path="/personal/personorder/:id" component={PersonOrder} />
 		                <Route path="/personal/personaddress" component={PersonAddress} />
 		                <Route path="/personal/addaddress" component={AddAddress} />
-		                <Route path="/xyhome" component={XyHome} />
+		                <Route path="/sort" component={Sort} />
+		            	
 		            </div>
 		        </ConnectedRouter>
 		    </Provider>

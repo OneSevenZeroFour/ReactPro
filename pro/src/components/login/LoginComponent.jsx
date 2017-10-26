@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as loginAction from './LoginAction';
 import SpinnerComponent from '../spinner/SpinnerComponent';
 import { Button, Message } from 'element-react';
+import $ from 'jquery';
 
 import './login.scss';
 import {cookie} from '../../util/cookie';
@@ -11,8 +12,15 @@ class LoginComponent extends Component {
     constructor(props) {
         super(props);
     }
+
+   
     componentDidMount(){
-        console.log('123')
+        //console.log($('.ant-layout-footer'))
+        $('.ant-layout-footer').css({display:'none'})
+        //console.log('123')
+    }
+    componentWillUnmount(){
+        $('.ant-layout-footer').css({display:'block'})
     }
     componentWillReceiveProps(nextProps) {
         //console.log(this.props, nextProps)

@@ -28,7 +28,9 @@ class LoginComponent extends Component {
             canOrder: true,
         }
     }
-
+    componentWillUnmount() {
+        $('.ant-layout-footer').css({ display: 'block' })
+    }
     componentWillUpdate() {
         let checkList = this.state.checkList;
         let hasgoods = checkList.some(function (item, idx) {
@@ -45,6 +47,7 @@ class LoginComponent extends Component {
 
 
     componentDidMount() {
+        $('.ant-layout-footer').css({ display: 'none' })
         let self = this;
 
         //是否登录
@@ -322,7 +325,7 @@ class LoginComponent extends Component {
                 checkList.push(arr);
             }
             shopsCheck = [];
-         
+
             //删除数据
             $.post(serverUrl + 'remove', {
                 tableName: 'cart',

@@ -17,8 +17,12 @@ class LoginComponent extends Component {
             orderData: []
         }
     }
-
+ 
+    componentWillUnmount(){
+        $('.ant-layout-footer').css({display:'block'})
+    }
     componentDidMount() {
+        $('.ant-layout-footer').css({display:'none'})
         let self = this;
 
         if (!cookie.get('userId')) {

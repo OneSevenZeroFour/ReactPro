@@ -20,8 +20,12 @@ class LoginComponent extends Component {
             data: {}
         }
     }
-
+  
+    componentWillUnmount(){
+        $('.ant-layout-footer').css({display:'block'})
+    }
     componentDidMount() {
+        $('.ant-layout-footer').css({display:'none'})
         let self = this;
 
         //初始化地址选择控件

@@ -17,7 +17,11 @@ class LoginComponent extends Component {
             value: 0
         }
     }
+    componentWillUnmount(){
+        $('.ant-layout-footer').css({display:'block'})
+    }
     componentDidMount() {
+        $('.ant-layout-footer').css({display:'none'})
         //console.log('123')
         let self = this;
         self.selectFun(function (res) {

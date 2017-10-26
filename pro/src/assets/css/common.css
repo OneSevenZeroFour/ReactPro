@@ -10,7 +10,12 @@ body::-webkit-scrollbar {
 
 html {
     overflow-x: hidden;
-    overflow-y: auto
+    overflow-y: auto;
+    font-size: 10px;
+}
+
+.ant-layout {
+    background-color: #fff;
 }
 
 ul,
@@ -29,6 +34,8 @@ img {
 
 html,
 body,
+ul,
+li,
 h1,
 h2,
 h3,
@@ -53,4 +60,25 @@ a {
 
 .el-message-box {
     width: 86%;
+}
+
+#app,
+.ant-layout,
+.ant-layout-content {
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+.ant-layout-footer {
+    padding: 2rem;
+    font-size: 1.6rem;
+    text-align: center;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+}
+
+.ant-col-6 a.active {
+    color: #f03468;
 }

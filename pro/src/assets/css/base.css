@@ -17,4 +17,6 @@ a{
     display: inline-block;
     
 }
-  
+#main{
+	height:100%;
+} 

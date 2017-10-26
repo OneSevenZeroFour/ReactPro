@@ -8,16 +8,17 @@ import swiperImg from "../../assets/images/banner1.jpeg";
 import {HashRouter as Router, Route, Link, Redirect} from 'react-router-dom';
 //引进首页样式
 import "./home.scss";
-//import 'weui';
-//import 'react-weui/build/packages/react-weui.css';
-//import Siwper from "../siwper/siwper.jsx"
+import {Layout,Icon} from 'antd';
+const {Header, Content } = Layout;
 //home类使其拥有react所有方法与属性
+import "antd/dist/antd.css"
 
-//import {Button} from 'rctui'
-//import 'element-theme-default';
 class Home extends Component {
 	constructor(props){
 		super(props);
+		this.state={
+			ActiveNum:0
+		}
 		this.homeHeader=[
 			{
 				title:"热门",
@@ -39,44 +40,28 @@ class Home extends Component {
 				urlTo:"/home/excise"
 			}   
 		]
-		//首页内容部分分区列表 （图片+商品列表）
-		this.homedata=[
-		{
-			bigImg:require("../../assets/images/kind1.jpeg"),
-			ajaxUrl:"",
-			color:"#c0714a",
-			list_header_nav:""
-		},{
-			bigImg:require("../../assets/images/kind2.jpeg"),
-			ajaxUrl:"",
-			color:"",
-			list_header_nav:""
-		},{
-			bigImg:require("../../assets/images/kind3.jpeg"),
-			ajaxUrl:"",
-			color:"",
-			list_header_nav:""
-		},{
-			bigImg:require("../../assets/images/kind4.jpeg"),
-			ajaxUrl:"",
-			color:"",
-			list_header_nav:""
-		},{
-			bigImg:require("../../assets/images/kind5.jpeg"),
-			ajaxUrl:"",
-			color:"",
-			list_header_nav:""
-		},{
-			bigImg:require("../../assets/images/kind6.jpeg"),
-			ajaxUrl:"",
-			color:"",
-			list_header_nav:""
-		}]
+		this.changeNum=(index)=>{
+			console.log(index)
+			this.setState({ActiveNum:index})
+			
+			
+		}
 	}
-
+	componentWillMount(){
+		var num = 0;
+		var currentNum = this.props.location.pathname
+		this.homeHeader.map(function(item,index){
+//			console.log(item.urlTo,currentNum)
+			if(item.urlTo==currentNum){
+				this.setState({ActiveNum:index})
+			}
+		}.bind(this))
+		
+	}
 	render(){
 		return (
 			<div id="home_page">
+				<div className="home_warp">
 				<header className="global-header">
 				    <div className="header-province jProvince">广东</div>
 					    <div className="header-logo">
@@ -84,19 +69,20 @@ class Home extends Component {
 					        	<img src="//s1.bbgstatic.com/gshop/images/index/global-logo.png" alt=""/>
 					       </Link>
 				    	</div>
-				    <div className="header-search jHeaderSearch"><i className="iconglobal"></i></div>
+				    <div className="header-search jHeaderSearch"><Icon type="search" /></div>
 				</header>
 				<ul className="home_nav">
 				{
 					this.homeHeader.map(function(item,index){
-						console.log(index)
-						return<Link to={item.urlTo}  key={index}><a ><span>{item.title}</span></a></Link >
+					
+						return<Link to={item.urlTo}  key={index}  onClick={this.changeNum.bind(this,index)}><span className={this.state.ActiveNum==index?'active':""}>{item.title}</span></Link >
 						
-					})
+					}.bind(this))
 				}
 				</ul>
-				
+				</div>
 			</div>
+			
 		)
 	}
 }

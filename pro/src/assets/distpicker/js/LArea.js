@@ -63,6 +63,8 @@ window.LArea = (function() {
             var _self = this;
             //呼出插件
             function popupArea(e) {
+                e.preventDefault();
+                e.stopPropagation();
                 _self.gearArea = document.createElement("div");
                 _self.gearArea.className = "gearArea";
                 _self.gearArea.innerHTML = '<div class="area_ctrl slideInUp">' +
@@ -70,8 +72,8 @@ window.LArea = (function() {
                     '<div class="area_btn larea_cancel">取消</div>' +
                     '<div class="area_btn larea_finish">确定</div>' +
                     '</div>' +
-                    '<div class="area_roll_mask">' +
-                    '<div class="area_roll">' +
+                    '<div class="area_roll_mask" onclick="javascript:void(0)">' +
+                    '<div class="area_roll" >' +
                     '<div>' +
                     '<div class="gear area_province" data-areatype="area_province"></div>' +
                     '<div class="area_grid">' +
@@ -94,10 +96,14 @@ window.LArea = (function() {
                 areaCtrlInit();
                 var larea_cancel = _self.gearArea.querySelector(".larea_cancel");
                 larea_cancel.addEventListener('touchstart', function(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
                     _self.close(e);
                 });
                 var larea_finish = _self.gearArea.querySelector(".larea_finish");
                 larea_finish.addEventListener('touchstart', function(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
                     _self.finish(e);
                 });
                 var area_province = _self.gearArea.querySelector(".area_province");
@@ -131,6 +137,7 @@ window.LArea = (function() {
             //触摸开始
             function gearTouchStart(e) {
                 e.preventDefault();
+                e.stopPropagation();
                 var target = e.target;
                 while (true) {
                     if (!target.classList.contains("gear")) {
@@ -153,6 +160,7 @@ window.LArea = (function() {
             //手指移动
             function gearTouchMove(e) {
                 e.preventDefault();
+                e.stopPropagation();
                 var target = e.target;
                 while (true) {
                     if (!target.classList.contains("gear")) {
@@ -174,6 +182,8 @@ window.LArea = (function() {
             //离开屏幕
             function gearTouchEnd(e) {
                 e.preventDefault();
+                e.stopPropagation();
+                console.log(e.target)
                 var target = e.target;
                 while (true) {
                     if (!target.classList.contains("gear")) {
@@ -207,7 +217,10 @@ window.LArea = (function() {
                     stopGear = true;
                 }
                 clearInterval(target["int_" + target.id]);
+                console.log('123', target["int_" + target.id]);
+                //target["int_" + target.id] = target["int_" + target.id] || 0;
                 target["int_" + target.id] = setInterval(function() {
+
                     var pos = target["pos_" + target.id];
                     var speed = target["spd_" + target.id] * Math.exp(-0.03 * d);
                     pos += speed;
@@ -282,13 +295,20 @@ window.LArea = (function() {
             if (gearVal > maxVal) {
                 gearVal = maxVal;
             }
+            // if (!item[gearVal]) {
+            //     return;
+            // }
             gearChild[_self.index].setAttribute('data-len', l);
             if (l > 0) {
-                var id = item[gearVal][this.keys['id']];
+                try {
+                    var id = item[gearVal][_self.keys['id']];
+                } catch (Error) {
+                    console.log(Error)
+                }
                 var childData;
                 switch (_self.type) {
                     case 1:
-                        childData = item[gearVal].child
+                        childData = item[gearVal].child;
                         break;
                     case 2:
                         var nextData = _self.data[_self.index + 1]

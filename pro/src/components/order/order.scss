@@ -1,0 +1,203 @@
+$mainColor:#f03468;
+#order {
+    width: 100%;
+    .left {
+        position: absolute;
+        left: 10px;
+        top: 14px;
+    }
+    .right {
+        position: absolute;
+        right: 10px;
+        top: 14px;
+    }
+    .order-header {
+        background: #fff;
+        border-bottom: 1px solid #ccc;
+        text-align: center;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 999;
+        width: 100%;
+        p {
+            font-size: 16px;
+            line-height: 40px;
+        }
+    }
+    .addr-area {
+        height: 42px;
+        font-size: 12px;
+        border-bottom: 1px solid #ccc;
+        background: url('../../assets/img/order-letter.png') repeat-x top left #fff;
+        background-origin: padding-box;
+        background-size: 50px 6px;
+        margin-top: 50px;
+        position: relative;
+        padding-top: 10px;
+        .left,
+        .right {
+            top: 24px;
+        }
+        p {
+            margin-left: 30px;
+            line-height: 42px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        &:active {
+            background-color: #efefef;
+        }
+    }
+    .order-middle {
+        margin-top: 10px;
+        width: 100%;
+        .isempty {
+            //display: none;
+            margin-top: 60px;
+            box-sizing: border-box;
+            padding: 0 40px;
+            color: #999;
+            font-size: 12px;
+            text-align: center;
+            i {
+                font-size: 70px;
+            }
+            p {
+                margin-top: 10px;
+            }
+        }
+        .cart-item {
+            border-top: 1px solid #efefef;
+            border-bottom: 1px solid #efefef;
+            font-size: 12px;
+            color: #333;
+            .cart-shop {
+                padding-left: 10px;
+                height: 36px;
+                line-height: 36px;
+                .cart-shop-title {
+                    margin-left: 10px;
+                }
+            }
+            .cart-goods {
+                background-color: #efefef;
+                padding-left: 10px;
+                overflow: hidden;
+                position: relative;
+                .goods-img {
+                    padding: 12px 6px;
+                    float: left;
+                    img {
+                        width: 68px;
+                        height: 68px;
+                    }
+                }
+                .title-area {
+                    margin-left: 8px;
+                    margin-top: 8px;
+                    margin-right: 8px;
+                    .goods-title {
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        margin-bottom: 6px;
+                    }
+                }
+                .price-area {
+                    margin-top: 8px;
+                    margin-left: 80px;
+                    p {
+                        color: $mainColor;
+                        &:before {
+                            content: '￥';
+                        }
+                    }
+                }
+                .num-area {
+                    position: absolute;
+                    right: 10px;
+                    bottom: 12px;
+                    div {
+                        width: 26px;
+                        height: 24px;
+                        display: inline-block;
+                        text-align: center;
+                        line-height: 22px;
+                        background-color: #fff;
+                    }
+                    .num-show {
+                        width: 34px;
+                    }
+                }
+            }
+            .total-price {
+                line-height: 40px;
+                overflow: hidden;
+                font-size: 14px;
+                p {
+                    float: right;
+                    margin-right: 10px;
+                    span {
+                        color: $mainColor;
+                        &::before {
+                            content: '￥';
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .order-totalPrice {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 6px 10px;
+        font-size: 12px;
+        line-height: 34px;
+        background-color: #fff;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        margin-top: 10px;
+        margin-bottom: 60px;
+        p {
+            overflow: hidden;
+            span {
+                float: right;
+                margin-right: 10px;
+                &::before {
+                    content: '￥';
+                }
+                color: $mainColor;
+            }
+        }
+    }
+    .order-bottom {
+        width: 100%;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        font-size: 14px;
+        line-height: 40px;
+        background-color: #fff;
+        border-top: 1px solid #efefef;
+        .o-t-area {
+            width: 100%;
+            overflow: hidden;
+            .o-t-t-price {
+                width: 70%;
+                float: left;
+                color: $mainColor;
+                box-sizing: border-box;
+                padding-left: 20px;
+            }
+            .o-t-t-btn {
+                width: 30%;
+                background-color: $mainColor;
+                color: #fff;
+                float: right;
+                text-align: center;
+            }
+        }
+    }
+}

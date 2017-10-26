@@ -24,9 +24,10 @@ $mainColor: #f03468;
     }
     .address-list {
         width: 100%;
+        margin-bottom: 50px;
         .isempty {
+            display: none;
             margin-top: 60px;
-            display: block;
             box-sizing: border-box;
             padding: 0 40px;
             color: #999;
@@ -39,9 +40,83 @@ $mainColor: #f03468;
                 margin-top: 10px;
             }
         }
+        .addr-list {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0 16px;
+            li {
+                width: 100%;
+                box-sizing: border-box;
+                padding: 6px 10px;
+                border: 1px solid #ccc;
+                margin-bottom: 12px;
+                background-color: #fff;
+                .msg-area {
+                    font-size: 12px;
+                    line-height: 1.6;
+                    border-bottom: 1px solid #ccc;
+                    .recipient {
+                        margin-bottom: 10px;
+                        overflow: hidden;
+                        font-size: 14px;
+                        .elephone {
+                            float: right;
+                        }
+                    }
+                    .pre-address {
+                        color: #666;
+                        margin-bottom: 6px;
+                    }
+                }
+                .edit-area {
+                    overflow: hidden;
+                    font-size: 12px;
+                    color: #333;
+                    p {
+                        float: right;
+                        margin-right: 10px;
+                        margin-top: 6px;
+                        .addr-radio {
+                            .el-radio__inner {
+                                width: 16px;
+                                height: 16px;
+                            }
+                            .el-radio__label {
+                                font-size: 12px;
+                            }
+                        }
+                        .label-box {
+                            display: inline-block;
+                            width: 13px;
+                            height: 13px;
+                            background-color: #fff;
+                            border-radius: 50%;
+                            border: 1px solid #ccc;
+                            //margin-top: 10px;
+                            vertical-align: bottom;
+                        }
+                        .checkedbox {
+                            opacity: 0;
+                            height: 0;
+                            width: 0;
+                            vertical-align: bottom;
+                        }
+                        .checkedbox:checked+.label-box {
+                            width: 5px;
+                            height: 5px;
+                            background-color: #fff;
+                            border: 5px solid $mainColor;
+                        }
+                    }
+                }
+            }
+        }
     }
     .add-area {
-        margin-top: 12px;
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
         .add-btn {
             margin-left: 5%;
             width: 90%;

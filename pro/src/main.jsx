@@ -22,6 +22,10 @@ import Personal from './components/personal/PersonalComponent.jsx';
 import PersonOrder from './components/personorder/personOrderComponent.jsx';
 import PersonAddress from './components/personaddress/personAddress.jsx';
 import AddAddress from './components/addaddress/addAddress.jsx';
+import Collection from './components/collection/collection.jsx';
+import Cart from './components/cart/cartComponent.jsx';
+import Order from './components/order/orderComponent.jsx';
+
 import Home from './components/home/home.jsx';
 
 import HomeHot from "./components/home/hot/hot.jsx";
@@ -74,6 +78,9 @@ ReactDOM.render(
                 <Route path="/personal/personorder/:id" component={PersonOrder} />
                 <Route path="/personal/personaddress" component={PersonAddress} />
                 <Route path="/personal/addaddress" component={AddAddress} />
+                <Route path="/personal/collection" component={Collection} />
+                <Route path="/cart" component={Cart} />
+                <Route path="/order" component={Order} />
                 <Route path="/home" component={Home} />
                 <Route path="/home/hot" component={HomeHot} />
                 <Route path="/home/makeup" component={HomeMakeup} />

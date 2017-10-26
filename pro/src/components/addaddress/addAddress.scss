@@ -45,6 +45,35 @@ $mainColor: #f03468;
                 border: 0;
                 height: 40px;
             }
+            .label-box {
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                background-color: #fff;
+                border-radius: 50%;
+                border: 1px solid #ccc;
+                margin-top: 10px;
+            }
+            #checkedbox {
+                opacity: 0;
+                height: 0;
+                width: 0;
+            }
+            #checkedbox:checked+.label-box {
+                width: 6px;
+                height: 6px;
+                background-color: #fff;
+                border: 6px solid $mainColor;
+            }
+        }
+        .send-btn {
+            width: 90%;
+            border-color: $mainColor;
+            background-color: $mainColor;
+            color: #fff;
+            font-size: 16px;
+            margin-top: 20px;
+            margin-left: 5%;
         }
     }
 }

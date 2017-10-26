@@ -5,7 +5,7 @@ import SpinnerComponent from '../spinner/SpinnerComponent';
 import { Button, Message } from 'element-react';
 
 import './register.scss';
-
+import {cookie} from '../../util/cookie';
 
 class LoginComponent extends Component {
     constructor(props) {
@@ -19,7 +19,20 @@ class LoginComponent extends Component {
                 type: 'success',
                 message: '注册成功'
             })
-            nextProps.history.push('/');
+            console.log(nextProps.data)
+            cookie.set({
+                name: 'userId',
+                val: nextProps.data.data.userId
+            })
+            setTimeout(function(){
+                nextProps.history.push('/');
+            },1000)
+            
+        }else{
+            Message({
+                type: 'warning',
+                message: nextProps.data.msg
+            })
         }
     }
     toRegister() {

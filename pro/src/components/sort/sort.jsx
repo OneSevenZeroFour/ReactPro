@@ -1,23 +1,23 @@
 import React,{Component} from 'react';
 // import { Button } from 'element-react';
-import styled from 'styled-components';
+//import styled from 'styled-components';
 import { Collapse ,Anchor,Icon,Layout} from 'antd';
 const { Content } = Layout;
 import $ from "jquery";
-import '../../../assets/font_home/iconfont.css';
+//import '../../../assets/font_home/iconfont.css';
 //import '/src/assets/font_home/iconfont.css';
 
-import '../../../assets/css/homeRouter.scss';
-//import '/src/assets/css/homeRouter.css';
+import '../../../src/assets/css/homeRouter.scss';
 import "antd/dist/antd.css";
 
 
-class HomeHealth extends Component {
+class Sort extends Component {
     constructor(props){
         super(props);
         this.state = {
             activeData:"",
-            ajaxUrl:"http://120.76.205.241:8000/product/yunhou?pageToken=1&kw=%E4%B8%AA%E6%8A%A4&apikey=QXsvzRZEdtm3JmfD16LWkBk7nB688hrMPhTsJafIzW5b53pJueSAK4iGP4ThzFmi"
+            hash:"a"
+            //ajaxUrl:"http://120.76.205.241:8000/product/yunhou?pageToken=1&kw=" + hash + "&apikey=QXsvzRZEdtm3JmfD16LWkBk7nB688hrMPhTsJafIzW5b53pJueSAK4iGP4ThzFmi"
         }
         this.getData=(url)=>{
             var self=this;
@@ -40,37 +40,29 @@ class HomeHealth extends Component {
             history.go(-1);
         }
     }
-
-    componentDidMount(){
+    componentWillMount(){
         
+    }
+    componentDidMount(){
+        var hashzhi = window.location.hash.slice(7);
+        console.log(hashzhi);
+
+        var ajaxUrl = "http://120.76.205.241:8000/product/yunhou?pageToken=1&kw=" + hashzhi + "&apikey=QXsvzRZEdtm3JmfD16LWkBk7nB688hrMPhTsJafIzW5b53pJueSAK4iGP4ThzFmi";
+        // this.setState({
+        //     hash:hashzhi
+        // }) 
+        //console.log(this.state.hash)
+
         //console.log(this.props.match);
-        var ajaxUrl = this.state.ajaxUrl
+        //var ajaxUrl = this.state.ajaxUrl
 
         this.getData(ajaxUrl)
-
     }
-
     render(){
+        
         return (
             <div>
-                <div className="header">
-                    <div><a href="#/sort?个护热销"><i className="iconfont icon-fire"></i><p>TOP热销</p></a></div>
-                    <div><a href="#/sort?口腔护理"><i className="iconfont icon-yagao"></i><p>口腔护理</p></a></div>
-                    <div><a href="#/sort?姨妈巾"><i className="iconfont icon-nvshiweishengyongpin"></i><p>姨妈巾</p></a></div>
-                    <div><a href="#/sort?家居清洁"><i className="iconfont icon-zhijin"></i><p>家居清洁</p></a></div>
-                    <div><a href="#/sort?情趣用品"><i className="iconfont icon-qingquyongpin"></i><p>情趣用品</p></a></div>
-                    <div><a href="#/sort?洗发护发"><i className="iconfont icon-xifahufa"></i><p>洗发护发</p></a></div>
-                    <div><a href="#/sort?美容工具"><i className="iconfont icon-meironggongju"></i><p>美容工具</p></a></div>
-                    <div><a href="#/sort?身体护理"><i className="iconfont icon-shentihuli"></i><p>身体护理</p></a></div>
-                </div>
-                <div className="banner">
-                    <img src="/src/assets/images/kind6.jpeg" />
-                </div>
                 <Content>
-                    <div className="tuijian">
-                        <i className="iconfont icon-fire"></i>
-                        <span>每日推荐</span>
-                    </div>
                     <ul className="active_list">
                     {(function(self){
                         if(self.state.activeData){
@@ -107,4 +99,4 @@ class HomeHealth extends Component {
         )
     }
 }
-export default HomeHealth;
+export default Sort;

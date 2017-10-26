@@ -53,8 +53,6 @@ class HomeMakeup extends Component {
     }
 
 
-
-
     /*view层*/
     render(){
         var Div = styled.div`
@@ -82,14 +80,14 @@ class HomeMakeup extends Component {
         return (
             <div>
                 <div className="header">
-                    <div><a href="#"><i className="iconfont icon-fire"></i><p>TOP热销</p></a></div>
-                    <div><a href="#"><i className="iconfont icon-hufu--"></i><p>基础护肤</p></a></div>
-                    <div><a href="#"><i className="iconfont icon-koudai"></i><p>大牌小样</p></a></div>
-                    <div><a href="#"><i className="iconfont icon-17"></i><p>清洁卸妆</p></a></div>
-                    <div><a href="#"><i className="iconfont icon-jirou"></i><p>男士专区</p></a></div>
-                    <div><a href="#"><i className="iconfont icon-caizhuang"></i><p>百变彩妆</p></a></div>
-                    <div><a href="#"><i className="iconfont icon-mianmo"></i><p>面膜面贴</p></a></div>
-                    <div><a href="#"><i className="iconfont icon-xiangshui"></i><p>魅惑香水</p></a></div>
+                    <div><a href="#/sort?美妆热销"><i className="iconfont icon-fire"></i><p>TOP热销</p></a></div>
+                    <div><a href="#/sort?基础护肤"><i className="iconfont icon-hufu--"></i><p>基础护肤</p></a></div>
+                    <div><a href="#/sort?大牌小样"><i className="iconfont icon-koudai"></i><p>大牌小样</p></a></div>
+                    <div><a href="#/sort?清洁卸妆"><i className="iconfont icon-17"></i><p>清洁卸妆</p></a></div>
+                    <div><a href="#/sort?男士专区"><i className="iconfont icon-jirou"></i><p>男士专区</p></a></div>
+                    <div><a href="#/sort?百变彩妆"><i className="iconfont icon-caizhuang"></i><p>百变彩妆</p></a></div>
+                    <div><a href="#/sort?面膜面贴"><i className="iconfont icon-mianmo"></i><p>面膜面贴</p></a></div>
+                    <div><a href="#/sort?魅惑香水"><i className="iconfont icon-xiangshui"></i><p>魅惑香水</p></a></div>
                 </div>
                 <div className="banner">
                     <img src="/src/assets/images/kind5.jpeg" />

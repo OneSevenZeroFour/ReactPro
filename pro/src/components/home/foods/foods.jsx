@@ -73,7 +73,7 @@ class HomeFoods extends Component {
                         if(self.state.activeData){
                             return self.state.activeData.map(function(item,index){
                         
-                            return <li>
+                            return <li key={index}>
                                 <a href="#" className="" data-id={"asdsa"}>
                                     <div className="goods_img">
                                         <img   src={item.imageUrls[0]} />

@@ -21,3 +21,4 @@
 ####4.首页活动列表页
 	首页点击 大图 or 加载更多 传参 对象（bigImgUrl,kindName,mainColor,headerContent）
 	 数据请求，并渲染
+	 下拉刷新

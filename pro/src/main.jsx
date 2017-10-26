@@ -75,6 +75,27 @@ const TabPane = Tabs.TabPane;
 class Main extends Component{
 	constructor(props){
 		super(props);
+		this.data=[{
+				title:"热门",
+				urlTo:"/home/hot",
+				icon:"home",
+				now:"/home"
+			},{
+				title:"分类",
+				urlTo:"/home",
+				icon:"appstore",
+				now:"/home"
+			},{
+				title:"购物车",
+				urlTo:"/buycart",
+				icon:"buycart",
+				now:"/buycart"
+			},{
+				title:"我的",
+				urlTo:"/personal",
+				icon:"user",
+				now:"/personal"
+			}]
 		this.state={
 			currentIndex :0
 		}
@@ -88,13 +109,23 @@ class Main extends Component{
 	componentWillMount(){
 //		window.location.href="/#/home/hot"
 //		hashHistory.push('/home/hot')
+		var num = 0;
+		
+		var currentNum = window.location.href
+
+		this.data.map(function(item,index){
+			console.log(currentNum.indexOf(item.urlTo),index)
+			if(currentNum.indexOf(item.urlTo)>0){
+				this.setState({currentIndex:index})
+			}
+		}.bind(this))
 	}
 	render(){
 		return(<Row>
-		       <Col span={6} onClick={this.changeNum.bind(this,0)}><Link to="/home/hot" className={this.state.currentIndex==0?'active':""} ><Icon type="home"  />首页</Link></Col>
-		       <Col span={6} onClick={this.changeNum.bind(this,1)}><Link to="/home" className={this.state.currentIndex==1?'active':""} ><Icon type="appstore-o"/>分类</Link></Col>
-		       <Col span={6} onClick={this.changeNum.bind(this,2)}><Link to="/buycart" className={this.state.currentIndex==2?'active':""} ><Icon type="buycar" />购物车</Link></Col>
-		       <Col span={6} onClick={this.changeNum.bind(this,3)}><Link to="/personal" className={this.state.currentIndex==3?'active':"" } ><Icon type="user" />我的</Link></Col>
+				{this.data.map(function(item,index){
+					 return <Col span={6} onClick={this.changeNum.bind(this,index)} key={index}><Link to={item.urlTo} className={this.state.currentIndex==index?'active':""} ><Icon type={item.icon}  />{item.title}</Link></Col>
+				}.bind(this))}
+		       
 		    </Row>)
 	}
 	

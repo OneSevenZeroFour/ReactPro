@@ -47,6 +47,17 @@ class Home extends Component {
 			
 		}
 	}
+	componentWillMount(){
+		var num = 0;
+		var currentNum = this.props.location.pathname
+		this.homeHeader.map(function(item,index){
+//			console.log(item.urlTo,currentNum)
+			if(item.urlTo==currentNum){
+				this.setState({ActiveNum:index})
+			}
+		}.bind(this))
+		
+	}
 	render(){
 		return (
 			<div id="home_page">

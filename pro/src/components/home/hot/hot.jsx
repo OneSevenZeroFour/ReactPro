@@ -108,7 +108,8 @@ class HomeHot extends Component {
 			
 	}
 	componentWillMount(){
-		var page = 1,select="kw",sotes="化妆";
+//		var page = 1,select="kw",sotes="化妆";
+	
 		for(let i=0;i<this.state.homedata.length;i++){
 			var self = this;
 			setTimeout(function(){

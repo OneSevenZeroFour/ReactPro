@@ -86,7 +86,8 @@ class Main extends Component{
 		}
 	}
 	componentWillMount(){
-		
+//		window.location.href="/#/home/hot"
+//		hashHistory.push('/home/hot')
 	}
 	render(){
 		return(<Row>
@@ -107,10 +108,8 @@ ReactDOM.render(
 		        { /* ConnectedRouter will use the store from Provider automatically */}
 		        <ConnectedRouter history={hashHistory}>
 		            <div>
-		            	<Redirect from="/" to="/home/hot" />  
-		            	 
-				      	<Route path="/home" component={Home} />
-				      	 
+		            	
+				      	<Route path="/home" component={Home} /> 
 		                <Route path="/home/hot" component={HomeHot} />
 		                <Route path="/active" component={Active} />
 		                <Route path="/home/makeup" component={HomeMakeup} />

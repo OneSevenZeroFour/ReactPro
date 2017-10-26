@@ -125,7 +125,7 @@ class HomeHot extends Component {
 					<Carousel autoplay>
 						{
 							this.swiperImgs.map(function(item,index){
-								return <div><img className="big_img" src={item} key={index}/></div>
+								return <div key={index}><img className="big_img" src={item} /></div>
 							})
 						}
 					 </Carousel>
@@ -137,7 +137,7 @@ class HomeHot extends Component {
 						return	self.state.homedata.map(function(item,index){
 							var path = {
 								pathname:'/active',
-								query:item
+								state:item
 							}
 							return <div className="lists" key={index}>
 										<Link to={path}>

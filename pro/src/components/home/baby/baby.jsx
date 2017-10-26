@@ -36,9 +36,7 @@ class HomeBaby extends Component {
                 
             });
         }
-        this.goBack =()=>{
-            history.go(-1);
-        }
+      
     }
     componentDidMount(){
         

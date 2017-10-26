@@ -17,7 +17,8 @@
 ####3.路由跳转（头部分类）home/:kind   kind:种类名
 	
  	内容：热门 美妆 母婴 食品 生活 个护 保健
- 	注意事项：路由重定向<Redirect from="/" to="/home/hot" />  
+ 	注意事项：a.路由重定向<Redirect from="/" to="/home/hot" />  
+ 			b.路由切换时的高亮设置,react事件触发传参onClick={this.函数名.bind(this,参数1,参数2)}
 ####4.首页活动列表页
 	首页点击 大图 or 加载更多 传参 对象（bigImgUrl,kindName,mainColor,headerContent）
 	 数据请求，并渲染

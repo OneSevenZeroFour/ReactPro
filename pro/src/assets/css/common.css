@@ -58,7 +58,9 @@ a {
 	text-align: center;
 	background-color: #fff;
 	border-top: 1px solid #ddd;
+	
 }
-a:hover {
+.ant-col-6 a.active{
 	color: #f03468;
 }
+

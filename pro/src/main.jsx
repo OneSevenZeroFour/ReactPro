@@ -46,7 +46,7 @@ import $ from 'jquery';
 //element-ui style
 import 'element-theme-default';
 import './assets/font/iconfont.css';
-import './assets/css/common.css';
+
 import './assets/css/base.css'
 import './assets/css/common.css'
 //蚂蚁金服ui
@@ -77,17 +77,22 @@ class Main extends Component{
 		this.state={
 			currentIndex :0
 		}
-	
+		this.changeNum=(index)=>{
+			console.log(index)
+			this.setState({currentIndex:index})
+			console.log(this.state.currentIndex)
+			
+		}
 	}
 	componentWillMount(){
 		
 	}
 	render(){
 		return(<Row>
-		       <Col span={6} ><Link to="/home/hot" className={this.state.currenIndex==0?active:""}><Icon type="home"  />首页</Link></Col>
-		       <Col span={6} ><Link to="/home" className={this.state.currenIndex==1?active:"" }><Icon type="appstore-o"/>分类</Link></Col>
-		       <Col span={6} ><Link to="/buycart" className={this.state.currenIndex==2?active:""}><Icon type="buycar" />购物车</Link></Col>
-		       <Col span={6} ><Link to="/personal" className={this.state.currenIndex==3?active:"" }><Icon type="user" />我的</Link></Col>
+		       <Col span={6} onClick={this.changeNum.bind(this,0)}><Link to="/home/hot" className={this.state.currentIndex==0?'active':""} ><Icon type="home"  />首页</Link></Col>
+		       <Col span={6} onClick={this.changeNum.bind(this,1)}><Link to="/home" className={this.state.currentIndex==1?'active':""} ><Icon type="appstore-o"/>分类</Link></Col>
+		       <Col span={6} onClick={this.changeNum.bind(this,2)}><Link to="/buycart" className={this.state.currentIndex==2?'active':""} ><Icon type="buycar" />购物车</Link></Col>
+		       <Col span={6} onClick={this.changeNum.bind(this,3)}><Link to="/personal" className={this.state.currentIndex==3?'active':"" } ><Icon type="user" />我的</Link></Col>
 		    </Row>)
 	}
 	
@@ -104,7 +109,7 @@ ReactDOM.render(
 		            	<Redirect from="/" to="/home/hot" />  
 		            	 
 				      	<Route path="/home" component={Home} />
-				      	<Redirect from="/home" to="/home/hot" /> 
+				      	 
 		                <Route path="/home/hot" component={HomeHot} />
 		                <Route path="/active" component={Active} />
 		                <Route path="/home/makeup" component={HomeMakeup} />
@@ -112,10 +117,10 @@ ReactDOM.render(
 		                <Route path="/home/foods" component={HomeFoods} />
 		                <Route path="/home/health" component={HomeHealth} />
 		                <Route path="/home/excise" component={HomeExcise} />
-		                <Route exact path="/" component={Home} />
+		                
 		                <Route path="/login" component={Login} />
 		                <Route path="/register" component={Register} />
-		                <Route exact path="/personal" component={Personal} />
+		                <Route path="/personal" component={Personal} />
 		                <Route path="/personal/personorder/:id" component={PersonOrder} />
 		                <Route path="/personal/personaddress" component={PersonAddress} />
 		                <Route path="/personal/addaddress" component={AddAddress} />

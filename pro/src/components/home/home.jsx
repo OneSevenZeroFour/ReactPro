@@ -16,6 +16,9 @@ import "antd/dist/antd.css"
 class Home extends Component {
 	constructor(props){
 		super(props);
+		this.state={
+			ActiveNum:0
+		}
 		this.homeHeader=[
 			{
 				title:"热门",
@@ -37,7 +40,12 @@ class Home extends Component {
 				urlTo:"/home/excise"
 			}   
 		]
-		
+		this.changeNum=(index)=>{
+			console.log(index)
+			this.setState({ActiveNum:index})
+			
+			
+		}
 	}
 	render(){
 		return (
@@ -56,9 +64,9 @@ class Home extends Component {
 				{
 					this.homeHeader.map(function(item,index){
 					
-						return<Link to={item.urlTo}  key={index}><span>{item.title}</span></Link >
+						return<Link to={item.urlTo}  key={index}  onClick={this.changeNum.bind(this,index)}><span className={this.state.ActiveNum==index?'active':""}>{item.title}</span></Link >
 						
-					})
+					}.bind(this))
 				}
 				</ul>
 				</div>

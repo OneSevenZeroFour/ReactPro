@@ -81,13 +81,13 @@ a {
  			margin:0.5rem;
  			display: inline-block;
  		}
- 		&:hover{
- 			span{
- 				
- 				border-bottom: 2px solid  $redColor;
- 			}
+ 		.active{
+ 		    border-bottom: 2px solid  $redColor;
+            color:#f03468;
  		}
+ 		
  	}
+ 	
  }
  .big_img{
  	width:100%;

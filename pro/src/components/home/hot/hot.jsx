@@ -92,8 +92,8 @@ class HomeHot extends Component {
 
 				return this.state["kind"+index].map(function(i,t){
 				
-					return <div className="goods_box" key={t} >
-							<a href={i.url}>
+					return <div  className="goods_box" key={t}>
+							<a href={i.url} >
 								<img src={i.imageUrls[0]} width="50" height="50"/>
 								<div className="goods_into">
 									<p>{i.title}</p>
@@ -104,6 +104,8 @@ class HomeHot extends Component {
 				})
 			
 			}
+			
+			
 	}
 	componentWillMount(){
 		var page = 1,select="kw",sotes="化妆";

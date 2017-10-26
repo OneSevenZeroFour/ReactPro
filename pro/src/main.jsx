@@ -133,40 +133,38 @@ class Main extends Component{
 
 ReactDOM.render(
 	 <Router>
-	<Layout>
-		<Content>
-		    <Provider store={store}>
-		        { /* ConnectedRouter will use the store from Provider automatically */}
-		        <ConnectedRouter history={hashHistory}>
-		            <div>
-		            	
-				      	<Route path="/home" component={Home} /> 
-		                <Route path="/home/hot" component={HomeHot} />
-		                <Route path="/active" component={Active} />
-		                <Route path="/home/makeup" component={HomeMakeup} />
-		                <Route path="/home/baby" component={HomeBaby} />
-		                <Route path="/home/foods" component={HomeFoods} />
-		                <Route path="/home/health" component={HomeHealth} />
-		                <Route path="/home/excise" component={HomeExcise} />
-		                
-		                <Route path="/login" component={Login} />
-		                <Route path="/register" component={Register} />
-		                <Route path="/personal" component={Personal} />
-		                <Route path="/personal/personorder/:id" component={PersonOrder} />
-		                <Route path="/personal/personaddress" component={PersonAddress} />
-		                <Route path="/personal/addaddress" component={AddAddress} />
-
-		                <Route path="/sort" component={Sort} />
-		            
-		                <Route path="/buycart"  />
-		            </div>
-		        </ConnectedRouter>
-		    </Provider>
-		</Content>
-	    <Footer>
-	      	<Main/>
-	    </Footer>
-	</Layout>
+		<Layout>
+			<Content>
+			    <Provider store={store}>
+			        { /* ConnectedRouter will use the store from Provider automatically */}
+			        <ConnectedRouter history={hashHistory}>
+			            <div>
+			            	{/*<Redirect push to="/home/hot"/>  无效，存在页面刷新回到主页的问题*/}
+					      	<Route path="/home" component={Home} /> 
+			                <Route path="/home/hot" component={HomeHot} />
+			                <Route path="/active/:id/:title/:bigImg" component={Active} />
+			                <Route path="/home/makeup" component={HomeMakeup} />
+			                <Route path="/home/baby" component={HomeBaby} />
+			                <Route path="/home/foods" component={HomeFoods} />
+			                <Route path="/home/health" component={HomeHealth} />
+			                <Route path="/home/excise" component={HomeExcise} />
+			                <Route path="/login" component={Login} />
+			                <Route path="/register" component={Register} />
+			                <Route path="/personal" component={Personal} />
+			                <Route path="/personal/personorder/:id" component={PersonOrder} />
+			                <Route path="/personal/personaddress" component={PersonAddress} />
+			                <Route path="/personal/addaddress" component={AddAddress} />
+			                <Route path="/sort" component={Sort} />
+			            
+			                <Route path="/buycart"  />
+			            </div>
+			        </ConnectedRouter>
+			    </Provider>
+			</Content>
+		    <Footer>
+		      	<Main/>
+		    </Footer>
+		</Layout>
 	 </Router>
     ,
     document.querySelector('#app')

@@ -1,4 +1,4 @@
-//var personal = require('./personal/personal');
+var personal = require('./personal/personal');
 var login = require('./login/login');
 var register = require('./register/register');
 
@@ -14,7 +14,7 @@ module.exports = function(app) {
         }
     })
 
-    //personal(app);
+    personal(app);
     login(app);
     register(app);
 }

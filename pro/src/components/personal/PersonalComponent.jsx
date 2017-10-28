@@ -5,35 +5,41 @@ import SpinnerComponent from '../spinner/SpinnerComponent';
 import { Button, Message } from 'element-react';
 
 import './personal.scss';
-
+import { cookie } from '../../util/cookie';
 
 class LoginComponent extends Component {
     constructor(props) {
         super(props);
     }
 
-    componentWillReceiveProps(nextProps) {
-        console.log(this.props, nextProps)
-        if (nextProps.data.status) {
-            Message({
-                type: 'success',
-                message: '注册成功'
+    componentDidMount() {
+        if (!cookie.get('userId')) {
+            MessageBox.msgbox({
+                title: '提示',
+                message: '您尚未登录，请返回登录',
+                showCancelButton: false
+            }).then(action => {
+                self.props.history.push('/login');
             })
-            nextProps.history.push('/');
         }
     }
     orderLink(num) {
         console.log(111)
         this.props.history.push(`/personal/personorder/${num}`);
     }
+    loginOut() {
+        cookie.remove('userId');
+        cookie.remove('codeId');
+        this.props.history.push('/login');
+    }
     render() {
         return (
             <div id="personal">
                 <div className="persontop">
-                    <div className="header">
-                        <div className="linkicon">
-                            <i className="el-icon-arrow-left left"></i>
-                            <i className="iconfont icon-shouye right"></i>
+                    <div className="person-header">
+                        <div className="linkicons">
+                            <i className="el-icon-arrow-left left" onClick={() => { this.props.history.go(-1) }}></i>
+                            <i className="iconfont icon-shouye right" onClick={() => { this.props.history.push('/') }}></i>
                         </div>
                     </div>
                     <div className="person-area">
@@ -53,22 +59,22 @@ class LoginComponent extends Component {
                 </div>
                 <div className="person-middle">
                     <div className="order">
-                        <p className="order-title">我的订单 <span onClick={()=>{this.orderLink('0')}}>查看我的全部订单 ></span></p>
+                        <p className="order-title">我的订单 <span onClick={() => { this.orderLink('0') }}>查看我的全部订单 ></span></p>
                         <div className="order-list">
                             <ul>
-                                <li onClick={()=>{this.orderLink('1')}}>
+                                <li onClick={() => { this.orderLink('1') }}>
                                     <i className="iconfont icon-qianbao"></i>
                                     <p>代付款</p>
                                 </li>
-                                <li onClick={()=>{this.orderLink('2')}}>
+                                <li onClick={() => { this.orderLink('2') }}>
                                     <i className="iconfont icon-daifahuo"></i>
                                     <p>代发货</p>
                                 </li>
-                                <li onClick={()=>{this.orderLink('3')}}>
+                                <li onClick={() => { this.orderLink('3') }}>
                                     <i className="iconfont icon-0068"></i>
                                     <p>待收货</p>
                                 </li>
-                                <li onClick={()=>{this.orderLink('4')}}>
+                                <li onClick={() => { this.orderLink('4') }}>
                                     <i className="iconfont icon-wuliuchaxun"></i>
                                     <p>物流查询</p>
                                 </li>
@@ -83,7 +89,7 @@ class LoginComponent extends Component {
                             <i className="iconfont icon-jifen pink"></i>
                             <p>会员积分</p>
                         </li>
-                        <li>
+                        <li onClick={() => { this.props.history.push('/personal/collection') }}>
                             <i className="iconfont icon-shoucang pink"></i>
                             <p>我的收藏</p>
                         </li>
@@ -91,7 +97,7 @@ class LoginComponent extends Component {
                             <i className="iconfont icon-youhuiquan1 pink"></i>
                             <p>优惠券</p>
                         </li>
-                        <li>
+                        <li onClick={() => { this.props.history.push('/personal/personaddress') }}>
                             <i className="iconfont icon-shouhuodizhi yellow"></i>
                             <p>收货地址</p>
                         </li>
@@ -103,7 +109,7 @@ class LoginComponent extends Component {
                             <i className="iconfont icon-shangpinpinglun yellow"></i>
                             <p>商品评论</p>
                         </li>
-                        <li>
+                        <li onClick={this.loginOut.bind(this)}>
                             <i className="iconfont icon-tuichu grey"></i>
                             <p>退出</p>
                         </li>

@@ -36,7 +36,6 @@ $mainColor:#f03468;
             i {
                 position: absolute;
                 left: 10px;
-                top: 6px;
                 font-size: 24px;
                 color: $mainColor;
             }
@@ -64,4 +63,8 @@ $mainColor:#f03468;
             }
         }
     }
+}
+
+.ant-layout-footer {
+    display: none;
 }

@@ -76,7 +76,7 @@ class HomeExcise extends Component {
                             return self.state.activeData.map(function(item,index){
                         
                             return <li key={index}>
-                                <a href="#" className="" data-id={"asdsa"}>
+                                <a href={item.url} className="" data-id={"asdsa"}>
                                     <div className="goods_img">
                                         <img   src={item.imageUrls[0]} />
                                     </div>

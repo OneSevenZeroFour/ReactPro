@@ -29,7 +29,12 @@ class LoginComponent extends Component {
         console.log(this.props, nextProps)
 
     }
+
+    componentWillUnmount(){
+        $('.ant-layout-footer').css({display:'block'})
+    }
     componentDidMount() {
+        $('.ant-layout-footer').css({display:'none'})
         //colorlink.style
         this.refs.colorlink.style.left = this.props.match.params.id * 25 + '%';
         //change stylech

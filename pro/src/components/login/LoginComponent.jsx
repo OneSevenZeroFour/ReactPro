@@ -3,15 +3,25 @@ import { connect } from 'react-redux';
 import * as loginAction from './LoginAction';
 import SpinnerComponent from '../spinner/SpinnerComponent';
 import { Button, Message } from 'element-react';
+import $ from 'jquery';
 
 import './login.scss';
-
+import {cookie} from '../../util/cookie';
 
 class LoginComponent extends Component {
     constructor(props) {
         super(props);
     }
 
+   
+    componentDidMount(){
+        //console.log($('.ant-layout-footer'))
+        $('.ant-layout-footer').css({display:'none'})
+        //console.log('123')
+    }
+    componentWillUnmount(){
+        $('.ant-layout-footer').css({display:'block'})
+    }
     componentWillReceiveProps(nextProps) {
         //console.log(this.props, nextProps)
         if (nextProps.data.status) {
@@ -19,7 +29,18 @@ class LoginComponent extends Component {
                 type: 'success',
                 message: '登录成功'
             })
+            console.log(nextProps.data.data[0])
+            cookie.set({
+                name: 'userId',
+                val: nextProps.data.data[0].userId
+            })
+            
             nextProps.history.push('/');
+        }else{
+            Message({
+                type: 'warning',
+                message: nextProps.data.msg
+            })
         }
     }
     toRegister() {

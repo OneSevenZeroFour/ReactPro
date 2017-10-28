@@ -22,7 +22,7 @@ $mianColor: #ff6d95;
         //background: #fff;
         padding-bottom: 20px;
         background: url('../../assets/img/beijing.jpg') no-repeat center center;
-        .header {
+        .person-header {
             box-sizing: border-box;
             padding: 10px 20px;
             width: 100%;
@@ -72,6 +72,7 @@ $mianColor: #ff6d95;
             color: #333;
             overflow: hidden;
             line-height: 28px;
+            padding-bottom: 10px;
             span {
                 float: right;
                 font-size: 12px;
@@ -129,4 +130,8 @@ $mianColor: #ff6d95;
             }
         }
     }
+}
+
+html {
+    background-color: #fff;
 }

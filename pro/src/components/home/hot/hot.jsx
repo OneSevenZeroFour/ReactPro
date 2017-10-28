@@ -4,6 +4,7 @@ import React,{Component} from 'react';
 import {hotCont} from "react-redux";
 
 import $ from "jquery";
+import {withRouter } from 'react-router'
 //hash路由 、route路由显示区域、link、路径指向 、redirect重定向
 import {HashRouter as Router, Route, Link, Redirect} from 'react-router-dom';
 import "./hot.scss"
@@ -26,42 +27,50 @@ class HomeHot extends Component {
 			kind5:"",
 			homedata:[{
 						title:"阻你打造今秋最in妆容",
-						bigImg:"/src/assets/images/kind1.jpeg",
-						ajaxUrl:"http://120.76.205.241:8000/product/yunhou?pageToken=1&kw=%E5%8C%96%E5%A6%86&apikey=ZIZJCfxUFdV2NBW4EKeHhLzOewKuJM2w8cyYSSz3cUgYhAQwkprkubdVgRcFKsH5",
+						bigImg:"/src/assets/images/kind0.jpeg",
 						color:"#c0714a",
+						keyId:"美妆",
 						list_header_nav:["面部护肤","清洁护理","香水彩妆"]
 					},{
 						title:"澳洲直邮品质源自新西兰",
-						bigImg:"/src/assets/images/kind2.jpeg",
-						ajaxUrl:"http://120.76.205.241:8000/product/yunhou?pageToken=1&kw=%E4%BF%9D%E5%81%A5&apikey=ZIZJCfxUFdV2NBW4EKeHhLzOewKuJM2w8cyYSSz3cUgYhAQwkprkubdVgRcFKsH5",
+						bigImg:"/src/assets/images/kind1.jpeg",
 						color:"",
+						keyId:"澳洲奶粉",
 						list_header_nav:["奶粉","宝宝营养","家人健康"]
 					},{
 						title:"免邮免税   包你囤好货",
-						bigImg:"/src/assets/images/kind3.jpeg",
-						ajaxUrl:"http://120.76.205.241:8000/product/yunhou?pageToken=1&kw=%E8%90%A5%E5%85%BB%E4%BF%9D%E5%81%A5&apikey=ZIZJCfxUFdV2NBW4EKeHhLzOewKuJM2w8cyYSSz3cUgYhAQwkprkubdVgRcFKsH5",
+						bigImg:"/src/assets/images/kind2.jpeg",
 						color:"#eeb4ca",
+						keyId:"全球",
 						list_header_nav:["营养保健","全球美食","母婴用品","美妆个护"],
-						
 					},{
 						title:"纸尿裤品牌团",
-						bigImg:"/src/assets/images/kind4.jpeg",
-						ajaxUrl:"http://120.76.205.241:8000/product/yunhou?pageToken=1&kw=%E7%BA%B8%E5%B0%BF%E8%A3%A4&apikey=ZIZJCfxUFdV2NBW4EKeHhLzOewKuJM2w8cyYSSz3cUgYhAQwkprkubdVgRcFKsH5",
+						bigImg:"/src/assets/images/kind3.jpeg",
 						color:"lightgrey",
+						keyId:"纸尿裤",
 						list_header_nav:["花王","大王","尤妮佳","帮宝适"],
-						
 					},{
 						title:"显白口红大盘点",
-						bigImg:"/src/assets/images/kind5.jpeg",
-						ajaxUrl:"http://120.76.205.241:8000/product/yunhou?pageToken=1&kw=%E5%8F%A3%E7%BA%A2&apikey=ZIZJCfxUFdV2NBW4EKeHhLzOewKuJM2w8cyYSSz3cUgYhAQwkprkubdVgRcFKsH5",
+						bigImg:"/src/assets/images/kind4.jpeg",
 						color:"#eeb4ca",
+						keyId:"口红",
 						list_header_nav:"",
-						
 					},{
 						title:"水润头皮  滋养发根",
+						bigImg:"/src/assets/images/kind5.jpeg",
+						keyId:"护发",
+						list_header_nav:["洗发露","护发素","发膜、精油"]
+					},{
+						title:"精选家居好物品",
 						bigImg:"/src/assets/images/kind6.jpeg",
-						ajaxUrl:"http://120.76.205.241:8000/product/yunhou?pageToken=1&kw=%E5%85%BB%E5%8F%91&apikey=ZIZJCfxUFdV2NBW4EKeHhLzOewKuJM2w8cyYSSz3cUgYhAQwkprkubdVgRcFKsH5",
 						color:"#a0857e",
+						keyId:"家居",
+						list_header_nav:["洗发露","护发素","发膜、精油"]
+					},{
+						title:"养足睡眠 尽力充沛一整天",
+						bigImg:"/src/assets/images/kind7.jpeg",
+						color:"#a0857e",
+						keyId:"睡眠",
 						list_header_nav:["洗发露","护发素","发膜、精油"]
 					}]
 			}
@@ -75,7 +84,6 @@ class HomeHot extends Component {
 				    	//设置数据
 				    var kind="kind"+i 
 				   	console.log(kind)
-				   	var abc =
 				    self.setState({
 				    	[kind]:listData 
 				    }) 
@@ -84,7 +92,7 @@ class HomeHot extends Component {
 			}
 			this.getUrl=(sotes)=>{
 				var sote =encodeURI(sotes);
-				var baseUrl = "http://120.76.205.241:8000/product/yunhou?pageToken=1&kw="+sotes+"&apikey=ZIZJCfxUFdV2NBW4EKeHhLzOewKuJM2w8cyYSSz3cUgYhAQwkprkubdVgRcFKsH5"
+				var baseUrl = "http://120.76.205.241:8000/product/yunhou?pageToken=1&kw="+sote+"&apikey=ZIZJCfxUFdV2NBW4EKeHhLzOewKuJM2w8cyYSSz3cUgYhAQwkprkubdVgRcFKsH5"
 				return baseUrl
 			}
 			this.getList=(index)=>{										
@@ -109,11 +117,12 @@ class HomeHot extends Component {
 	}
 	componentWillMount(){
 //		var page = 1,select="kw",sotes="化妆";
-	
+		console.log()
 		for(let i=0;i<this.state.homedata.length;i++){
 			var self = this;
 			setTimeout(function(){
-				self.getDate( self.state.homedata[i].ajaxUrl ,i)
+				console.log(self.state.homedata[i].keyId,i)
+				self.getDate( self.getUrl(self.state.homedata[i].keyId) ,i)
 			},1000*i)
 		}
 		
@@ -136,12 +145,12 @@ class HomeHot extends Component {
 					{
 						(function(self){	
 						return	self.state.homedata.map(function(item,index){
-							var path = {
+							{/*var path = {
 								pathname:'/active',
-								state:item
-							}
+								query:item
+							}*/}
 							return <div className="lists" key={index}>
-										<Link to={path}>
+										<Link to={'/active/'+item.keyId+'/'+item.title+'/'+index}>
 											<div className="list_big_img">
 												<img className="big_img" src={item.bigImg} alt=""/>
 											</div>
@@ -168,5 +177,5 @@ class HomeHot extends Component {
 		)
 	}
 }
-export default HomeHot;
+export default withRouter(HomeHot);
 

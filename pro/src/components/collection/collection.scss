@@ -1,0 +1,138 @@
+$mainColor: #f03468;
+#collection {
+    width: 100%;
+    .header {
+        background: #fff;
+        border-bottom: 1px solid #ccc;
+        position: relative;
+        text-align: center;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 999;
+        width: 100%;
+        i {
+            position: absolute;
+            left: 10px;
+            top: 12px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 40px;
+        }
+    }
+    .order-middle {
+        margin-top: 46px;
+        background: #efefef;
+        position: relative;
+        ul {
+            overflow: hidden;
+            text-align: center;
+            width: 100%;
+            text-align: center;
+        }
+        li {
+            float: left;
+            width: 50%;
+            box-sizing: border-box;
+            font-size: 12px;
+            line-height: 3;
+            transition: all .4s;
+            p {
+                display: inline-block;
+            }
+            span {
+                margin-left: 3px;
+                color: $mainColor;
+            }
+        }
+        .colorlink {
+            width: 50%;
+            height: 2px;
+            background: $mainColor;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            transition: all .4s ease-out;
+        }
+    }
+    .collection-bottom {
+        margin-top: 10px;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0 14px;
+        .isempty {
+            //display: none;
+            margin-top: 60px;
+            box-sizing: border-box;
+            padding: 0 40px;
+            color: #999;
+            font-size: 12px;
+            text-align: center;
+            i {
+                font-size: 70px;
+            }
+            p {
+                margin-top: 10px;
+            }
+        }
+        li {
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            overflow: hidden;
+            transition: all .4s;
+            .img-area {
+                float: left;
+                padding: 10px;
+                img {
+                    width: 70px;
+                    height: 70px;
+                }
+            }
+            .title-area {
+                margin-top: 6px;
+                margin-left: 10px;
+                margin-right: 10px;
+                font-size: 12px;
+                line-height: 1.6;
+            }
+            .price-area {
+                overflow: hidden;
+                margin-top: 6px;
+                margin-left: 10px;
+                margin-right: 10px;
+                p {
+                    float: left;
+                    color: $mainColor;
+                    font-size: 12px;
+                    line-height: 2;
+                    /*多行文本省略*/
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 3;
+                    overflow: hidden;
+                    &::before {
+                        content: '￥'
+                    }
+                }
+                .col-btn {
+                    float: right;
+                    height: 24px;
+                    font-size: 10px;
+                    line-height: 1.8;
+                    display: inline-block;
+                    padding: 0 8px;
+                    border: 1px solid #ccc;
+                    background-color: #fff;
+                    border-radius: 4px;
+                    outline: none;
+                }
+            }
+        }
+    }
+}
+
+.ant-layout-footer {
+    display: none;
+}

@@ -16,7 +16,7 @@ app.get('/sendProxy', function(req, res) {
     res.append('Access-Control-Allow-Origin', "*");
 
     var proxy = req.query.proxy;
- 
+
 
     http.get(proxy, function(result) {
         let data = '';
@@ -66,4 +66,4 @@ app.get('/sendProxy', function(req, res) {
 })
 
 //连接后台
-//var router = require('./router')(app);
+var router = require('./router')(app);

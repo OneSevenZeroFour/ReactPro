@@ -35,7 +35,10 @@ import Active from "./components/active/active.jsx";
 import Sort from "./components/sort/sort.jsx";
 
 
-
+// ****Y****
+import Yclassify from './components/classify/classify.jsx'
+import YlistPage from './components/listPage/listPage.jsx'
+// ******
 
 
 
@@ -82,9 +85,9 @@ class Main extends Component{
 				now:"/home"
 			},{
 				title:"分类",
-				urlTo:"/home",
+				urlTo:"/classify",
 				icon:"appstore",
-				now:"/home"
+				now:"/classify"
 			},{
 				title:"购物车",
 				urlTo:"/buycart",
@@ -103,14 +106,14 @@ class Main extends Component{
 			console.log(index)
 			this.setState({currentIndex:index})
 			console.log(this.state.currentIndex)
-			
+
 		}
 	}
 	componentWillMount(){
 //		window.location.href="/#/home/hot"
 //		hashHistory.push('/home/hot')
 		var num = 0;
-		
+
 		var currentNum = window.location.href
 
 		this.data.map(function(item,index){
@@ -125,10 +128,10 @@ class Main extends Component{
 				{this.data.map(function(item,index){
 					 return <Col span={6} onClick={this.changeNum.bind(this,index)} key={index}><Link to={item.urlTo} className={this.state.currentIndex==index?'active':""} ><Icon type={item.icon}  />{item.title}</Link></Col>
 				}.bind(this))}
-		       
+
 		    </Row>)
 	}
-	
+
 }
 
 ReactDOM.render(
@@ -139,8 +142,8 @@ ReactDOM.render(
 		        { /* ConnectedRouter will use the store from Provider automatically */}
 		        <ConnectedRouter history={hashHistory}>
 		            <div>
-		            	
-				      	<Route path="/home" component={Home} /> 
+
+				      	<Route path="/home" component={Home} />
 		                <Route path="/home/hot" component={HomeHot} />
 		                <Route path="/active" component={Active} />
 		                <Route path="/home/makeup" component={HomeMakeup} />
@@ -148,7 +151,7 @@ ReactDOM.render(
 		                <Route path="/home/foods" component={HomeFoods} />
 		                <Route path="/home/health" component={HomeHealth} />
 		                <Route path="/home/excise" component={HomeExcise} />
-		                
+
 		                <Route path="/login" component={Login} />
 		                <Route path="/register" component={Register} />
 		                <Route path="/personal" component={Personal} />
@@ -157,7 +160,10 @@ ReactDOM.render(
 		                <Route path="/personal/addaddress" component={AddAddress} />
 
 		                <Route path="/sort" component={Sort} />
-		            
+
+                    <Route path="/classify" component={Yclassify} />
+                    <Route path="/listpage" component={YlistPage} />
+
 		                <Route path="/buycart"  />
 		            </div>
 		        </ConnectedRouter>
@@ -171,6 +177,3 @@ ReactDOM.render(
     ,
     document.querySelector('#app')
 )
-
-
-

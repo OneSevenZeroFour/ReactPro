@@ -6,7 +6,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "cross-env NODE_ENV=development & webpack-dev-server --colors --port 3000 --open",
-        "server": "cd server & node server"
+        "server": "cd server & node server",
+        "build": "cross-env NODE_ENV=production & webpack"
     },
     "keywords": [],
     "author": "",

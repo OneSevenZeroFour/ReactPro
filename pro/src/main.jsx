@@ -36,6 +36,7 @@ import 'element-theme-default';
 import './assets/font/iconfont.css';
 import './assets/css/base.css'
 import './assets/css/common.css'
+//import './assets/js/flexible.js'
 
 //蚂蚁金服ui
 import { Layout } from 'antd'

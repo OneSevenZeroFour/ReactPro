@@ -38,6 +38,11 @@ import './assets/css/base.css'
 import './assets/css/common.css'
 //import './assets/js/flexible.js'
 
+// ****Y****
+import Yclassify from './components/classify/classify.jsx'
+import YlistPage from './components/listPage/listPage.jsx'
+// ******
+
 //蚂蚁金服ui
 import { Layout } from 'antd'
 const { Footer, Content } = Layout;
@@ -77,6 +82,8 @@ ReactDOM.render(
                     <Route path="/home/excise" component={HomeExcise} />
                     <Route exact path="/personal" component={Personal} />
                     <Route path="/sort" component={Sort} />
+                    <Route path="/classify" component={Yclassify} />
+                    <Route path="/listpage" component={YlistPage} />
                     <Route path="/buycart" />
                 </Content>
                 <Footer>
@@ -87,6 +94,3 @@ ReactDOM.render(
     </Provider>,
     document.querySelector('#app')
 )
-
-
-

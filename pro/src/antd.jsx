@@ -11,10 +11,10 @@ class Main extends Component {
             icon: "home",
             now: "/home"
         }, {
-            title: "分类",
-            urlTo: "/home",
-            icon: "appstore",
-            now: "/home"
+            title:"分类",
+            urlTo:"/classify",
+            icon:"appstore",
+            now:"/classify"
         }, {
             title: "购物车",
             urlTo: "/buycart",
@@ -60,14 +60,3 @@ class Main extends Component {
 }
 
 export default Main;
-
-
-
-
-
-
-
-
-
-
-

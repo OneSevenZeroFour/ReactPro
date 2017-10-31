@@ -4,7 +4,7 @@ import $ from 'jquery';
 import { connect } from 'react-redux';
 import * as ListAction from '../listAction';
 
-const Xiaoxiaoyuan = styled.div`
+const Xiaoxiaoyuan = styled.div `
   .box{overflow: auto;}
   .last{width:100%;height:50px ;text-align: center;line-height: 50px;font-size: 16px;}
   dl{width:100%;overflow:hidden;padding:5px;}
@@ -25,28 +25,28 @@ const Xiaoxiaoyuan = styled.div`
 `
 
 class Ylist extends React.Component {
-    constructor(props) {
-        super(props);
-        var othis = this;
-        this.sx = function (num1, num2) {
-            var wee = othis.state.zhi;
-            var data1 = [];
-            var wee3 = [];
-            for (var i = 0; i < wee.length; i++) {
-                wee3.push(wee[i])
-            }
-            for (var i = 0; i < wee3.length; i++) {
-                if (wee3[i].price > num1 && wee3[i].price <= num2) {
-                    data1.push(wee3[i])
-                }
-            }
-            var htmll = data1.map(function (item, index) {
-                if (item.marketPrice) {
-                    var ttt = '<i>￥:' + item.marketPrice + '</i>'
-                } else {
-                    var ttt = ''
-                }
-                return `<dl key=${index} onclick=${this}>
+	constructor(props) {
+		super(props);
+		var othis = this;
+		this.sx = function(num1, num2) {
+			var wee = othis.state.zhi;
+			var data1 = [];
+			var wee3 = [];
+			for(var i = 0; i < wee.length; i++) {
+				wee3.push(wee[i])
+			}
+			for(var i = 0; i < wee3.length; i++) {
+				if(wee3[i].price > num1 && wee3[i].price <= num2) {
+					data1.push(wee3[i])
+				}
+			}
+			var htmll = data1.map(function(item, index) {
+				if(item.marketPrice) {
+					var ttt = '<i>￥:' + item.marketPrice + '</i>'
+				} else {
+					var ttt = ''
+				}
+				return `<dl key=${index}>
             <dt>
               <img src=${item.imageUrls[0]} />
             </dt>
@@ -55,71 +55,71 @@ class Ylist extends React.Component {
               <h5>${item.title}</h5>
               <p><strong>￥:${item.appPrice}</strong>
               ${ttt}
-              <span class='xl'>销量：${item.saleCount}</span></p>
+              <span className='xl'>销量：${item.saleCount}</span></p>
             </dd>
           </dl>`
-            }).join('')
-            //console.log($('.box ul').html(htmll))
-        };
-        this.id = 1;
-        this.arrr = [];
-        this.url = ''
-        this.ajax = function () {
-            if (this.url != encodeURI(this.props.data)) {
-                this.arrr = [];
-            }
-            this.url = encodeURI(this.props.data);
-            //console.log(this.props.data)
-            var url = 'http://120.76.205.241:8000/product/yunhou?pageToken=' + this.id + '&kw=' + this.url + '&apikey=0pIHTJsKOryjKEHwKgzrsGxVunZa6EpqK3zEPag5zjdwZVUI8iYJLyd6iNd4NnL3'
-            // console.log(url)
-            $.ajax({
-                type: "get",
-                url: "http://localhost:8000/sendProxy",
-                data: {
-                    proxy: url
-                },
-                success: function (data) {
-                    if (data.data.data) {
-                        $('.last').css('display', 'none')
-                        othis.id++
-                        for (var i = 0; i < data.data.data.length; i++) {
-                            othis.arrr.push(data.data.data[i])
-                        }
-                        othis.setState({
-                            zhi: othis.arrr,
-                        })
-                    } else {
-                        $('.last').text('没有更多商品了')
-                    }
-                }
-            })
-        }
-        this.we = null
-    }
+			}).join('')
+			$('.box ul').html(htmll)
+		};
+		this.id = 1;
+		this.arrr = [];
+		this.url = ''
+		this.ajax = function() {
+			if(this.url != encodeURI(this.props.data)) {
+				this.arrr = [];
+			}
+			this.url = encodeURI(this.props.data);
+			//console.log(this.props.data)
+			var url = 'http://120.76.205.241:8000/product/yunhou?pageToken=' + this.id + '&kw=' + this.url + '&apikey=0pIHTJsKOryjKEHwKgzrsGxVunZa6EpqK3zEPag5zjdwZVUI8iYJLyd6iNd4NnL3'
+			// console.log(url)
+			$.ajax({
+				type: "get",
+				url: "http://localhost:8000/sendProxy",
+				data: {
+					proxy: url
+				},
+				success: function(data) {
+					if(data.data.data) {
+						$('.last').css('display', 'none')
+						othis.id++
+							for(var i = 0; i < data.data.data.length; i++) {
+								othis.arrr.push(data.data.data[i])
+							}
+						othis.setState({
+							zhi: othis.arrr,
+						})
+					} else {
+						$('.last').text('没有更多商品了')
+					}
+				}
+			})
+		}
+		this.we = null
+	}
 
-    componentDidMount() {
-        var othis = this;
-        //console.log(this.props)
-        $('.box').css({
-            height: (window.screen.height - 167) + 'px'
-        }).on('scroll', function () {
-            if (this.scrollTop + this.offsetHeight == this.scrollHeight) {
-                $('.last').text('加载中…')
-                $('.last').css('display', 'block')
-                othis.ajax()
-            }
-        })
-    }
-    componentDidUpdate() {
-        if (this.props.data != this.we) {
-            this.id = 1;
-            this.ajax()
-            this.we = this.props.data
-        }
-    }
-    render() {
-        return (
-            <Xiaoxiaoyuan>
+	componentDidMount() {
+		var othis = this;
+		//console.log(this.props)
+		$('.box').css({
+			height: (window.screen.height - 167) + 'px'
+		}).on('scroll', function() {
+			if(this.scrollTop + this.offsetHeight == this.scrollHeight) {
+				$('.last').text('加载中…')
+				$('.last').css('display', 'block')
+				othis.ajax()
+			}
+		})
+	}
+	componentDidUpdate() {
+		if(this.props.data != this.we) {
+			this.id = 1;
+			this.ajax()
+			this.we = this.props.data
+		}
+	}
+	render() {
+		return(
+			<Xiaoxiaoyuan>
                 <div className='box'>{(function (xthis) {
                     console.log(xthis.props)
                     if (xthis.props.data != undefined) {
@@ -186,33 +186,27 @@ class Ylist extends React.Component {
                                 }
                                 data = ccc
                             } else if (xthis.props.id == 3) {
-                                $('.box').on('click', 'li', function () {
-                                    if (this.id == 1) {
-                                        xthis.sx(0, 100)
-                                    } else if (this.id == 2) {
-                                        xthis.sx(100, 300)
-                                    } else if (this.id == 3) {
-                                        xthis.sx(300, 600)
-                                    } else if (this.id == 4) {
-                                        xthis.sx(600, 1200)
-                                    } else if (this.id == 5) {
-                                        xthis.sx(1200, 99999999)
-                                    }
-                                })
-                                return <ul>
-                                    <h6>价格筛选</h6>
-                                    <li id={1}>100以下</li>
-                                    <li id={2}>100-300</li>
-                                    <li id={3}>300-600</li>
-                                    <li id={4}>600-1200</li>
-                                    <li id={5}>1200以上</li>
-                                    <li>
-                                        <input placeholder="起始价格" />
-                                        <span>—</span>
-                                        <input placeholder="终止价格" />
-                                        <button>确定</button>
-                                    </li>
-                                </ul>
+                                $('.box').on('click','li',function(){
+                    if(this.id == 1){
+                      xthis.sx(0,100)
+                    }else if(this.id == 2){
+                      xthis.sx(100,300)
+                    }else if(this.id == 3){
+                      xthis.sx(300,600)
+                    }else if(this.id == 4){
+                      xthis.sx(600,1200)
+                    }else if(this.id == 5){
+                      xthis.sx(1200,99999999)
+                    }
+                  })
+                  return <ul>
+                    <h6>价格筛选</h6>
+                    <li id={1}>100以下</li>
+                    <li id={2}>100-300</li>
+                    <li id={3}>300-600</li>
+                    <li id={4}>600-1200</li>
+                    <li id={5}>1200以上</li>
+                  </ul>
                             }
                             var html = data.map(function (item, index) {
                                 return <dl key={index}>
@@ -240,10 +234,10 @@ class Ylist extends React.Component {
                 })(this)}
                 </div>
             </Xiaoxiaoyuan>
-        )
-    }
+		)
+	}
 }
 
 export default connect((state) => {
-    return state.ListPage;
+	return state.ListPage;
 }, ListAction)(Ylist)

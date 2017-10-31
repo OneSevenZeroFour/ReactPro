@@ -1,7 +1,7 @@
 $mainColor: #f03468;
 #addAddress {
     width: 100%;
-    .header {
+    .aa-header {
         background: #fff;
         border-bottom: 1px solid #ccc;
         position: relative;
@@ -22,6 +22,7 @@ $mainColor: #f03468;
         margin-top: 20px;
         box-sizing: border-box;
         padding: 0 14px;
+        font-size: 14px;
         .msg-area {
             border-bottom: 1px solid #eee;
             height: 40px;
@@ -45,25 +46,28 @@ $mainColor: #f03468;
                 border: 0;
                 height: 40px;
             }
-            .label-box {
-                display: inline-block;
-                width: 16px;
-                height: 16px;
-                background-color: #fff;
-                border-radius: 50%;
-                border: 1px solid #ccc;
-                margin-top: 10px;
-            }
-            #checkedbox {
-                opacity: 0;
-                height: 0;
-                width: 0;
-            }
-            #checkedbox:checked+.label-box {
-                width: 6px;
-                height: 6px;
-                background-color: #fff;
-                border: 6px solid $mainColor;
+            .checkbox-area {
+                float: left;
+                .label-box {
+                    display: inline-block;
+                    width: 16px;
+                    height: 16px;
+                    background-color: #fff;
+                    border-radius: 50%;
+                    border: 1px solid #ccc;
+                    margin-top: 10px;
+                }
+                #checkedbox {
+                    opacity: 0;
+                    height: 0;
+                    width: 0;
+                }
+                #checkedbox:checked+.label-box {
+                    width: 16px;
+                    height: 16px;
+                    background-color: #fff;
+                    border: 6px solid $mainColor;
+                }
             }
         }
         .send-btn {

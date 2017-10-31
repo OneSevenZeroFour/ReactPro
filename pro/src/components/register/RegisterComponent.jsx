@@ -31,9 +31,9 @@ class LoginComponent extends Component {
                 name: 'userId',
                 val: nextProps.data.data.userId
             })
-            setTimeout(function () {
-                nextProps.history.push('/');
-            }, 1000)
+            setTimeout(function(){
+                nextProps.history.push('/home/hot');
+            },1000)
 
         } else {
             Message({
@@ -44,9 +44,6 @@ class LoginComponent extends Component {
     }
     toRegister() {
         this.props.history.push('/login');
-    }
-    backTo() {
-        this.props.history.push('/');
     }
     loginAction() {
 
@@ -84,7 +81,7 @@ class LoginComponent extends Component {
         return (
             <div id="register">
                 <div className="header">
-                    <i className="el-icon-arrow-left" onClick={this.backTo.bind(this)}></i>
+                    <i className="el-icon-arrow-left" onClick={()=>{this.props.history.go(-1)}}></i>
                     <span onClick={this.toRegister.bind(this)}>返回登录</span>
                 </div>
                 <div className="login-img">

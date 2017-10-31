@@ -20,12 +20,12 @@ class LoginComponent extends Component {
             data: {}
         }
     }
-  
-    componentWillUnmount(){
-        $('.ant-layout-footer').css({display:'block'})
+
+    componentWillUnmount() {
+        $('.ant-layout-footer').css({ display: 'block' })
     }
     componentDidMount() {
-        $('.ant-layout-footer').css({display:'none'})
+        $('.ant-layout-footer').css({ display: 'none' })
         let self = this;
 
         //初始化地址选择控件
@@ -155,7 +155,7 @@ class LoginComponent extends Component {
     render() {
         return (
             <div id="addAddress">
-                <div className="header">
+                <div className="aa-header">
                     <i className="el-icon-arrow-left" onClick={() => { this.props.history.go(-1) }}></i>
                     <p>新建收货地址</p>
                 </div>
@@ -186,8 +186,10 @@ class LoginComponent extends Component {
                     </div>
                     <div className="msg-area">
                         <p className="diff">设置默认地址<span>（注：每次下单时默认该地址）</span></p>
-                        <input type="checkbox" id="checkedbox" onChange={this.changeData.bind(this, 'code')} checked={!!this.state.data.code} />
-                        <label htmlFor="checkedbox" className="label-box"></label>
+                        <div className="checkbox-area">
+                            <input type="checkbox" id="checkedbox" onChange={this.changeData.bind(this, 'code')} checked={!!this.state.data.code} />
+                            <label htmlFor="checkedbox" className="label-box"></label>
+                        </div>
                     </div>
                     <div>
                         <Button onClick={() => { this.sendMsg() }} className="send-btn">注册新地址</Button>

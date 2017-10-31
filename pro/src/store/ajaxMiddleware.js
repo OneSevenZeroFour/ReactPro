@@ -1,8 +1,8 @@
 import http from '../util/httpClient';
 
 export function ajaxMiddleware({ dispatch, getState }) {
-    console.log('middleware')
-        // 容器组件和展示组件相分离
+    //console.log('middleware')
+    // 容器组件和展示组件相分离
     return next => action => {
         const {
             types,

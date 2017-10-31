@@ -13,7 +13,6 @@ import rootReducer from './store/rootReducer';
 
 import Login from './components/login/LoginComponent.jsx';
 import Register from './components/register/RegisterComponent.jsx';
-import Demo from './components/demo/demo.jsx';
 import Personal from './components/personal/PersonalComponent.jsx';
 import PersonOrder from './components/personorder/personOrderComponent.jsx';
 import PersonAddress from './components/personaddress/personAddress.jsx';
@@ -31,6 +30,7 @@ import HomeExcise from "./components/home/excise/excise.jsx";
 import Active from "./components/active/active.jsx";
 import Sort from "./components/sort/sort.jsx";
 import Main from './antd.jsx';
+import Detail from './components/detail/detail.jsx';
 
 import 'element-theme-default';
 import './assets/font/iconfont.css';
@@ -81,13 +81,14 @@ ReactDOM.render(
                     <Route path="/home/health" component={HomeHealth} />
                     <Route path="/home/excise" component={HomeExcise} />
                     <Route exact path="/personal" component={Personal} />
+                    <Route exact path="/detail/:id" component={Detail} />
                     <Route path="/sort" component={Sort} />
                     <Route path="/classify" component={Yclassify} />
                     <Route path="/listpage" component={YlistPage} />
                     <Route path="/buycart" />
                 </Content>
                 <Footer>
-                    <Main />
+                    <Route component={Main}/>
                 </Footer>
             </Layout>
         </ConnectedRouter>

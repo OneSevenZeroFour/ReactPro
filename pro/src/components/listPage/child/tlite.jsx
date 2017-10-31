@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import $ from 'jquery';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import Ylist from './list.jsx';
+import * as ListAction from '../listAction';
 
 const Xiaoxiaoyuan = styled.div`
   @font-face {
@@ -28,97 +29,101 @@ const Xiaoxiaoyuan = styled.div`
 `
 
 class Ytitle extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      tlite:[{
-        tlite:'默认',
-        id:0
-      },{
-        tlite:'价格',
-        id:1
-      },{
-        tlite:'销量',
-        id:2
-      },{
-        tlite:'筛选',
-        id:3
-      }]
+    constructor(props) {
+        super(props);
+        this.state = {
+            tlite: [{
+                tlite: '默认',
+                id: 0
+            }, {
+                tlite: '价格',
+                id: 1
+            }, {
+                tlite: '销量',
+                id: 2
+            }, {
+                tlite: '筛选',
+                id: 3
+            }]
+        }
     }
-  }
-  componentDidMount(){
-    $('.yhedaer a').eq(0).addClass('bx');
-    var id = window.location.hash.split('=')[1];
-    this.props.dispatch({
-      type:'getlist',
-      data:id,
-      id:0
-    })
-  }
-  render(){
-    return(
-      <Xiaoxiaoyuan>
-          <div class='yhedaer'>{
-            (function(xthis){
-              var othis = xthis;
-              var i = 0;
-              var ii = 0;
-              var html = othis.state.tlite.map(function(item,index){
-                return  <a key={index} onClick={function(event){
-                  $(event.target).addClass('bx').siblings('a').removeClass('bx');
-                  $('.box')[0].scrollTop = 0
-                  var id = window.location.hash.split('=')[1];
-                  if(index == 1){
-                    i++;
-                    if(i%2 == 0){
-                      $(event.target).html("价格<i class = 'iconglobal'></i>")
-                    }else{
-                      $(event.target).html("价格<i class = 'iconglobal'></i>")
-                    }
-                    othis.props.dispatch({
-                      type:'getlist',
-                      data:id,
-                      id:index,
-                      II:i
-                    })
-                  }else{
-                    i = 0;
-                    $(event.target).parent().children('a').eq(1).children('i').remove()
-                  }
-                  if(index == 2){
-                    ii++;
-                    if(ii%2 == 0){
-                      $(event.target).html("销量<i class = 'iconglobal'></i>")
-                    }else{
-                      $(event.target).html("销量<i class = 'iconglobal'></i>")
-                    }
-                    othis.props.dispatch({
-                      type:'getlist',
-                      data:id,
-                      id:index,
-                      II:ii
-                    })
-                  }else{
-                    ii = 0;
-                    $(event.target).parent().children('a').eq(2).children('i').remove()
-                  }
-                  if(index == 3 ||index == 0){
-                    othis.props.dispatch({
-                      type:'getlist',
-                      data:id,
-                      id:index
-                    })
-                  }
-                }}>{item.tlite}</a>
-              })
-              return html
-            })(this)
-          }</div>
-          <div style={{width:"100%",height:'44px'}}></div>
-          <Ylist />
-      </Xiaoxiaoyuan>
-    )
-  }
+    componentDidMount() {
+        //console.log(this.props)
+        $('.yhedaer a').eq(0).addClass('bx');
+        var id = window.location.hash.split('=')[1];
+        //console.log(id)
+        this.props.login({
+            type: 'getlist',
+            data: id,
+            id: 0
+        })
+    }
+    render() {
+        return (
+            <Xiaoxiaoyuan>
+                <div className='yhedaer'>{
+                    (function (xthis) {
+                        var othis = xthis;
+                        var i = 0;
+                        var ii = 0;
+                        var html = othis.state.tlite.map(function (item, index) {
+                            return <a key={index} onClick={function (event) {
+                                $(event.target).addClass('bx').siblings('a').removeClass('bx');
+                                $('.box')[0].scrollTop = 0
+                                var id = window.location.hash.split('=')[1];
+                                if (index == 1) {
+                                    i++;
+                                    if (i % 2 == 0) {
+                                        $(event.target).html("价格<i class = 'iconglobal'></i>")
+                                    } else {
+                                        $(event.target).html("价格<i class = 'iconglobal'></i>")
+                                    }
+                                    othis.props.login({
+                                        type: 'getlist',
+                                        data: id,
+                                        id: index,
+                                        II: i
+                                    })
+                                } else {
+                                    i = 0;
+                                    $(event.target).parent().children('a').eq(1).children('i').remove()
+                                }
+                                if (index == 2) {
+                                    ii++;
+                                    if (ii % 2 == 0) {
+                                        $(event.target).html("销量<i class = 'iconglobal'></i>")
+                                    } else {
+                                        $(event.target).html("销量<i class = 'iconglobal'></i>")
+                                    }
+                                    othis.props.login({
+                                        type: 'getlist',
+                                        data: id,
+                                        id: index,
+                                        II: ii
+                                    })
+                                } else {
+                                    ii = 0;
+                                    $(event.target).parent().children('a').eq(2).children('i').remove()
+                                }
+                                if (index == 3 || index == 0) {
+                                    othis.props.login({
+                                        type: 'getlist',
+                                        data: id,
+                                        id: index
+                                    })
+                                }
+                            }}>{item.tlite}</a>
+                        })
+                        return html
+                    })(this)
+                }</div>
+                <div style={{ width: "100%", height: '44px' }}></div>
+                <Ylist />
+            </Xiaoxiaoyuan>
+        )
+    }
 }
 
-export default connect()(Ytitle)
+export default connect((state) => {
+    return state.ListPage;
+}, ListAction)(Ytitle)

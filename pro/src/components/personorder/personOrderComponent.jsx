@@ -60,7 +60,7 @@ class LoginComponent extends Component {
     render() {
         return (
             <div id="personorder">
-                <div className="header">
+                <div className="po-header">
                     <i className="el-icon-arrow-left" onClick={()=>{this.props.history.go(-1)}}></i>
                     <p>全部订单</p>
                 </div>

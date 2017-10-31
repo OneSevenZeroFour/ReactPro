@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import $ from 'jquery';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import * as ListAction from '../listAction';
 
 const Xiaoxiaoyuan = styled.div`
   @font-face {
@@ -34,38 +35,37 @@ const Xiaoxiaoyuan = styled.div`
 `
 
 class Ysearch extends React.Component {
-  constructor(props){
-    super(props);
-    var othis = this
-    this.search = function(event){
-      $('.box')[0].scrollTop = 0;
-      var val = $(event.target).siblings('input').val();
-      console.log(window.location.href = "http://localhost:3000/?#/listpage?id="+val)
-      othis.props.dispatch({
-        type:'getlist',
-        data:val,
-        id:0
-      })
+    constructor(props) {
+        super(props);
+        var othis = this
+        this.search = function (event) {
+            $('.box')[0].scrollTop = 0;
+            var val = $(event.target).siblings('input').val();
+            othis.props.login({
+                type: 'getlist',
+                data: val,
+                id: 0
+            })
+        }
     }
-  }
-  render(){
-    return(
-      <Xiaoxiaoyuan>
-          <a class='iconglobal left' onClick={function(){
-            window.history.go(-1)
-          }}></a>
-          <div>
-            <form>
-              <input type='text'/>
-              <button class='iconglobal' onClick={this.search}></button>
-            </form>
-          </div>
-          <a href='http://localhost:3000/?#/home/hot' class='iconglobal right'></a>
-      </Xiaoxiaoyuan>
-    )
-  }
+    render() {
+        return (
+            <Xiaoxiaoyuan>
+                <a className='iconglobal left' onClick={function () {
+                    window.history.go(-1)
+                }}></a>
+                <div>
+                    <form>
+                        <input type='text' />
+                        <button className='iconglobal' onClick={this.search}></button>
+                    </form>
+                </div>
+                <a href='http://localhost:3000/#/home/hot' className='iconglobal right'></a>
+            </Xiaoxiaoyuan>
+        )
+    }
 }
 
 export default connect((state) => {
-  return state
-})(Ysearch)
+    return state.ListPage;
+}, ListAction)(Ysearch)

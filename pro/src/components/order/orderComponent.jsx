@@ -106,7 +106,7 @@ class LoginComponent extends Component {
                             {ixtem.data.map((item, idx) => {
                                 return <div className="cart-goods" key={idx}>
                                     <div className="goods-img">
-                                        <img src={`./src/assets/img/${item.goodsImg}`} alt={item.goodsTitle} />
+                                        <img src={`${item.goodsImg}`} alt={item.goodsTitle} />
                                     </div>
                                     <div className="title-area">
                                         <p className="goods-title">{item.goodsTitle}</p>
@@ -152,7 +152,7 @@ class LoginComponent extends Component {
                             return total + curOdd;
                         }, 0)
                         return max;
-                    })()}</span></p>
+                    })()}.00</span></p>
                     <p>税费总计： <span>0.00</span></p>
                     <p>运费总计： <span>0.00</span></p>
                     <p>优惠总计:  <span>0.00</span></p>
@@ -171,7 +171,7 @@ class LoginComponent extends Component {
                                 }, 0)
                                 return max;
                             })()
-                        }</span></div>
+                        }.00</span></div>
                         <div className="o-t-t-btn">提交订单</div>
                     </div>
                 </div>

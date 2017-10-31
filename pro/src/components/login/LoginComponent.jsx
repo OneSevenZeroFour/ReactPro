@@ -23,19 +23,21 @@ class LoginComponent extends Component {
         $('.ant-layout-footer').css({display:'block'})
     }
     componentWillReceiveProps(nextProps) {
-        //console.log(this.props, nextProps)
+     
         if (nextProps.data.status) {
             Message({
                 type: 'success',
                 message: '登录成功'
             })
-            console.log(nextProps.data.data[0])
+            //console.log(nextProps.data.data[0])
             cookie.set({
                 name: 'userId',
                 val: nextProps.data.data[0].userId
             })
+            setTimeout(function(){
+                nextProps.history.push('/home/hot');
+            },1000)
             
-            nextProps.history.push('/');
         }else{
             Message({
                 type: 'warning',
@@ -46,9 +48,7 @@ class LoginComponent extends Component {
     toRegister() {
         this.props.history.push('/register');
     }
-    backTo() {
-        this.props.history.push('/');
-    }
+
     loginAction() {
 
         let eleReg = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
@@ -82,7 +82,7 @@ class LoginComponent extends Component {
         return (
             <div id="login">
                 <div className="header">
-                    <i className="el-icon-arrow-left" onClick={this.backTo.bind(this)}></i>
+                    <i className="el-icon-arrow-left" onClick={()=>{this.props.history.push('/home/hot')}}></i>
                     <span onClick={this.toRegister.bind(this)}>快速注册</span>
                 </div>
                 <div className="login-img">

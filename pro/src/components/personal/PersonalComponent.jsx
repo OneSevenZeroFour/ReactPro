@@ -2,17 +2,23 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as PersonalAction from './PersonalAction';
 import SpinnerComponent from '../spinner/SpinnerComponent';
-import { Button, Message } from 'element-react';
+import { Button, Message, MessageBox } from 'element-react';
 
 import './personal.scss';
 import { cookie } from '../../util/cookie';
+import { serverUrl } from '../../util/base';
 
 class LoginComponent extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            username: ''
+        }
     }
 
     componentDidMount() {
+        let self = this;
+
         if (!cookie.get('userId')) {
             MessageBox.msgbox({
                 title: '提示',
@@ -20,11 +26,30 @@ class LoginComponent extends Component {
                 showCancelButton: false
             }).then(action => {
                 self.props.history.push('/login');
+                return;
+            })
+        } else {
+            $.post(serverUrl + 'select', {
+                tableName: 'customer',
+                target: {
+                    type: 'default',
+                    tSearch: [{
+                        userId: cookie.get('userId')
+                    }]
+                }
+            }, function (res) {
+                //console.log(res)
+                self.setState({
+                    username: res.data[0].nickname || res.data[0].elephone
+                })
+
             })
         }
+
+
     }
     orderLink(num) {
-        console.log(111)
+        //console.log(111)
         this.props.history.push(`/personal/personorder/${num}`);
     }
     loginOut() {
@@ -38,8 +63,8 @@ class LoginComponent extends Component {
                 <div className="persontop">
                     <div className="person-header">
                         <div className="linkicons">
-                            <i className="el-icon-arrow-left left" onClick={() => { this.props.history.go(-1) }}></i>
-                            <i className="iconfont icon-shouye right" onClick={() => { this.props.history.push('/') }}></i>
+                            <i className="el-icon-arrow-left left" onClick={() => { this.props.history.push('/personal') }}></i>
+                            <i className="iconfont icon-shouye right" onClick={() => { this.props.history.push('/home/hot') }}></i>
                         </div>
                     </div>
                     <div className="person-area">
@@ -47,7 +72,7 @@ class LoginComponent extends Component {
                             <img src="./src/assets/img/user.png" alt="" />
                         </div>
                         <div className="nick-area">
-                            <p>13631421075</p>
+                            <p>{this.state.username}</p>
                         </div>
                         <div className="level-area">
                             <i>

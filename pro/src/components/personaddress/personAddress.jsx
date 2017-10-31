@@ -152,7 +152,7 @@ class LoginComponent extends Component {
     render() {
         return (
             <div id="personAddress">
-                <div className="header">
+                <div className="pr-header">
                     <i className="el-icon-arrow-left" onClick={() => { this.props.history.go(-1) }}></i>
                     <p>收货地址</p>
                 </div>

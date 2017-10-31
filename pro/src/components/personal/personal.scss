@@ -116,7 +116,7 @@ $mianColor: #ff6d95;
             float: left;
             width: 33%;
             box-sizing: border-box;
-            padding: 16px 0;
+            padding: 14px 0;
             //padding-top: 10px;
             font-size: 12px;
             text-align: center;
@@ -134,4 +134,9 @@ $mianColor: #ff6d95;
 
 html {
     background-color: #fff;
+}
+
+.ant-layout-content::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }

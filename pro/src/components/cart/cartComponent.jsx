@@ -488,14 +488,14 @@ class LoginComponent extends Component {
                                         onChange={() => { this.goodsCheck(index, idx) }}
                                     />
                                     <div className="goods-img">
-                                        <img src={`./src/assets/img/${item.goodsImg}`} alt="" />
+                                        <img src={`${item.goodsImg}`} alt="" />
                                     </div>
                                     <div className="title-area">
                                         <p className="goods-title">{item.goodsTitle}</p>
                                         <p>{item.goodsStyle}</p>
                                     </div>
                                     <div className="price-area">
-                                        <p>{item.goodsPrice}</p>
+                                        <p>{item.goodsPrice}.00</p>
                                     </div>
                                     <div className="num-area">
                                         <div className="num-cut" onClick={() => { this.cutNum(index, idx) }}> - </div>

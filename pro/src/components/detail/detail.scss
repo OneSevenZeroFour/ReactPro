@@ -1,0 +1,202 @@
+$mainColor: #f03468;
+#detail {
+    width: 100%;
+    background-color: #efefef;
+    .de-header {
+        background: #fff;
+        border-bottom: 1px solid #ccc;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 999;
+        text-align: center;
+        width: 100%;
+        i {
+            position: absolute;
+            left: 10px;
+            top: 12px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 40px;
+        }
+    }
+    .order-middle {
+        background: #efefef;
+        position: relative;
+        margin-top: 40px;
+        ul {
+            overflow: hidden;
+            text-align: center;
+            width: 100%;
+            text-align: center;
+        }
+        li {
+            float: left;
+            width: 33%;
+            box-sizing: border-box;
+            font-size: 14px;
+            line-height: 3;
+            transition: all .4s;
+            p {
+                display: inline-block;
+            }
+            span {
+                margin-left: 3px;
+                color: $mainColor;
+            }
+        }
+        .colorlink {
+            width: 33%;
+            height: 2px;
+            background: $mainColor;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            transition: all .4s ease-out;
+        }
+    }
+    .detail-middle {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 12px;
+        background-color: #fff;
+        padding-bottom: 10px;
+        .detailImg {
+            text-align: center;
+            img {
+                display: inline-block;
+                height: 300px;
+            }
+        }
+        .detail-price {
+            font-size: 16px;
+            line-height: 2;
+            color: $mainColor;
+            &::before {
+                content: '￥';
+            }
+        }
+        .detail-title {
+            font-size: 16px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        .detail-msg {
+            font-size: 14px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+    }
+    .other-area {
+        background-color: #fff;
+        margin-top: 14px;
+        padding-top: 30px;
+        .other-msg {
+            background-color: #fdebf0;
+            color: $mainColor;
+            text-align: center;
+            font-size: 14px;
+        }
+        .other-num-area {
+            margin-top: 20px;
+            .other-num-label {
+                line-height: 2;
+                font-size: 16px;
+                margin-left: 20px;
+                margin-bottom: 8px;
+            }
+            .num-area {
+                margin-left: 20px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                height: 40px;
+                text-align: center;
+                overflow: hidden;
+                display: inline-block;
+                line-height: 40px;
+                .num-cut {
+                    border-right: 1px solid #ccc;
+                }
+                .num-add {
+                    border-left: 1px solid #ccc;
+                }
+                .num-add,
+                .num-cut {
+                    color: $mainColor;
+                    width: 40px;
+                    font-size: 16px;
+                    height: 100%;
+                }
+                .num-add,
+                .num-cut,
+                .num-show {
+                    float: left;
+                }
+                .num-show {
+                    width: 45px;
+                    height: 100%;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .footer-area {
+        margin-top: 14px;
+        background-color: #fff;
+        text-align: center;
+        font-size: 14px;
+        line-height: 3;
+        .link-to-msg {
+            color: $mainColor;
+        }
+    }
+    .footer-area-mark2 {
+        font-size: 14px;
+        text-align: center;
+        line-height: 3;
+        margin-bottom: 56px;
+    }
+    .footer-area-markdown {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        background-color: #fff;
+        width: 100%;
+        height: 56px;
+        .footer-area-left {
+            float: left;
+            overflow: hidden;
+            width: 75%;
+            ul {
+                overflow: hidden;
+            }
+            li {
+                float: left;
+                width: 33%;
+                text-align: center;
+                i {
+                    font-size: 20px;
+                }
+                p {
+                    font-size: 14px;
+                    line-height: 1.4;
+                }
+            }
+        }
+        .footer-area-right {
+            float: right;
+            width: 25%;
+            line-height: 56px;
+            text-align: center;
+            background-color: $mainColor;
+            color: #fff;
+            font-size: 14px;
+        }
+    }
+}

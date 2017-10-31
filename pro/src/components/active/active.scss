@@ -30,12 +30,12 @@ html {
 }
 
 .active_list li {
-    width: 47%;
-    margin: 0 1rem 1rem 0;
+    width: 46%;
+    margin: 0 1rem .8rem 0;
     float: left;
     box-sizing: border-box;
     background-color: #fff;
-    padding: 1rem;
+    padding: 1rem .6rem;
 }
 
 .goods_img img {
@@ -45,14 +45,12 @@ html {
 
 .goods_into {
     width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -wibkit-box-orient: vertical;
     font-size: 1.4rem;
-    height: 4rem;
     color: #000;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }
 
 .price {

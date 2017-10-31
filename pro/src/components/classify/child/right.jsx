@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import $ from 'jquery';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import * as ClassifyAction from '../classifyAction';
 
 const Xiaoxiaoyuan = styled.div`
   width: 75%;
@@ -17,41 +18,40 @@ const Xiaoxiaoyuan = styled.div`
 `
 
 class Yright extends React.Component {
-  constructor(props){
-    super(props);
-  }
-  componentDidMount (){
+    constructor(props) {
+        super(props);
+    }
+    componentDidMount() {
+        //console.log(this.props);
+        $('.right').css({
+            height: (window.screen.height - 73) + 'px'
+        })
 
-    $('.right').css({
-      height:(window.screen.height-73)+'px'
-    })
-  }
-  render(){
-    return(
-      <Xiaoxiaoyuan>
-        <div class='right'>
-          {(function(self){
-            var othis = self;
-            var html = self.props.data.data.map(function(item,index){
-              return <dl key={index} class='.dl'>
-                <dt>{item.title}</dt>
-                {
-                  item.data.map(function(i,num){
-                    return <dd key={num}>
-                      <a href={"#/listpage?id="+i}>{i}</a>
-                    </dd>
-                  })
-                }
-              </dl>
-            })
-            return html
-          })(this)}
-        </div>
-      </Xiaoxiaoyuan>
-    )
-  }
+    }
+    render() {
+        return (
+            <Xiaoxiaoyuan>
+                <div className='right'>
+                    {
+                    this.props.data && this.props.data.data.map(function(item, idx){
+                        return <dl key={idx} className='.dl'>
+                        <dt>{item.title}</dt>
+                        {
+                            item.data.map(function (i, num) {
+                                return <dd key={num}>
+                                    <a href={"#/listpage?id=" + i}>{i}</a>
+                                </dd>
+                            })
+                        }
+                    </dl>
+                    })
+                    }
+                </div>
+            </Xiaoxiaoyuan>
+        )
+    }
 }
 
 export default connect((state) => {
-  return state
-})(Yright)
+    return state.Classify;
+}, ClassifyAction)(Yright)

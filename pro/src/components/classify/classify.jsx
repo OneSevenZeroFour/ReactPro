@@ -1,21 +1,21 @@
 import React from 'react';
 import Yleft from './child/left.jsx';
-import store from './store.js'
-import {Provider} from 'react-redux'
+import {connect} from 'react-redux';
+import * as ClassifyAction from './classifyAction';
 
 class Yclassify extends React.Component {
-  constructor(props){
-    super(props);
-  }
-  render(){
-    return(
-      <Provider store={store}>
-        <div>
-          <Yleft />
-        </div>
-      </Provider>
-    )
-  }
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        return (
+            <div>
+                <Yleft />
+            </div>
+        )
+    }
 }
 
-export default Yclassify
+export default connect((state)=>{
+    return state.Classify;
+}, ClassifyAction)(Yclassify)

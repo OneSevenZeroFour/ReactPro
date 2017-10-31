@@ -26,7 +26,8 @@ module.exports = {
     },
     devtool: 'eval-source-map',
     devServer: {
-        //contentBase: path.join(__dirname, '/'),
+        contentBase: path.join(__dirname, '/'),
+        publicPath,
         historyApiFallback: true,
         hot: true,
         inline: true,
@@ -73,11 +74,10 @@ module.exports = {
 
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
-        // new HtmlWebpackPlugin({
-        // 	title: 'react项目',
-        // 	inject: 'body',
-        // 	showErrors: true,
-        // 	template: __dirname + "/src/index.tmpl.ejs" //new 一个这个插件的实例，并传入相关的参数
-        // }),
+        //全局变量引用 不需要 import 可以全局使用 $ 
+        new webpack.ProvidePlugin({
+            jQuery: "jquery",
+            $: "jquery"
+        })
     ],
 }

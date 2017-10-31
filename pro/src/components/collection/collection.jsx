@@ -118,7 +118,7 @@ class LoginComponent extends Component {
                         {this.state.collectData.length > 0 ? this.state.collectData.map((item, index) => {
                             return <li key={index}>
                                 <div className="img-area">
-                                    <img src={`./src/assets/img/${item.goodsImg}`} alt="" />
+                                    <img src={`${item.goodsImg}`} alt="" />
                                 </div>
                                 <div className="title-area">
                                     <p>{item.goodsTitle}</p>

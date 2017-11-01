@@ -41,6 +41,7 @@ class Ysearch extends React.Component {
         this.search = function (event) {
             $('.box')[0].scrollTop = 0;
             var val = $(event.target).siblings('input').val();
+            window.location.href = "http://localhost:3000/?#/listpage?id="+val
             othis.props.login({
                 type: 'getlist',
                 data: val,

@@ -56,7 +56,7 @@ class Active extends Component {
         }
         console.log(obj)
         sessionStorage.setItem('cartGoods', JSON.stringify(obj));
-        //this.props.history.push('/detail/0');
+        this.props.history.push('/detail/0');
     }
     render() {
         return (

@@ -11,11 +11,17 @@ import {cookie} from '../../util/cookie';
 class LoginComponent extends Component {
     constructor(props) {
         super(props);
+        this.state={
+            data: {}
+        }
     }
 
-   
+   componentWillUpdate(nextProps, nextState){
+        console.log(nextState, nextProps);
+    
+   }
     componentDidMount(){
-        //console.log($('.ant-layout-footer'))
+        
         $('.ant-layout-footer').css({display:'none'})
         //console.log('123')
     }
@@ -35,7 +41,7 @@ class LoginComponent extends Component {
                 val: nextProps.data.data[0].userId
             })
             setTimeout(function(){
-                nextProps.history.push('/home/hot');
+                //nextProps.history.push('/home/hot');
             },1000)
             
         }else{

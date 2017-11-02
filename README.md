@@ -1,6 +1,17 @@
 # ReactPro
 组员：邱旭青（老邱）、杨培钦（小羊）、袁泽林（小小圆）、刘美（Ammy）
 
+### 项目启动 
+1. npm install 
+2. npm run build
+3. npm run server 开启后台服务
+4. npm start 开发用 dev-server
+
+(由于已经 build 好项目可以直接 3)
+
+
+
+
 ## 项目名称：云猴全球购
 ### 项目分工
 
@@ -34,3 +45,5 @@
 	首页点击 大图  传参 对象（bigImgUrl,kindName,headerContent）
 	 数据请求，并渲染
 	 下拉刷新
+
+     

@@ -5,6 +5,11 @@ var Aresult = require('./base/base');
 app = express();
 http.createServer(app);
 
+//app 部署静态文件
+app.use(express.static(path.join(__dirname, '../')));
+
+
+
 app.listen(8000, function() {
     console.log('server start, port %j', 8000);
 })
@@ -66,4 +71,4 @@ app.get('/sendProxy', function(req, res) {
 })
 
 //连接后台
-//var router = require('./router')(app);
+var router = require('./router')(app);

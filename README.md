@@ -1,6 +1,9 @@
 # ReactPro
 组员：邱旭青（老邱）、杨培钦（小羊）、袁泽林（小小圆）、刘美（Ammy）
 
+### 技术栈
+react + react-redux + react-router + sass + postcss + antd + + webpack + babel + express + mysql
+
 ### 项目启动 
 1. npm install 
 2. npm run build
